@@ -4,17 +4,20 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Portfolio de Gabriel Munos : systèmes, réseaux, support informatique et progression vers la cybersécurité." name="description"/>
-<meta content="TSSR, technicien systèmes et réseaux, cybersécurité, Windows Server, Linux, Active Directory, virtualisation, PowerShell, MODE 83, Brignoles, Var, PACA" name="keywords"/>
+<meta content="Portfolio de Gabriel Munos, technicien supérieur systèmes et réseaux (TSSR) en formation à Brignoles (Var) : labo Active Directory, Linux, réseau. Recherche un poste d&#x27;administrateur systèmes et réseaux ou de support, avec la cybersécurité comme cap." name="description"/>
+<meta content="TSSR, technicien systèmes et réseaux, administrateur systèmes et réseaux, support, helpdesk, cybersécurité, Active Directory, Windows Server, Linux, PowerShell, virtualisation, alternance, Brignoles, Var, PACA" name="keywords"/>
 <meta content="index, follow" name="robots"/>
 <meta content="#0a0a0b" name="theme-color"/>
+<meta content="dark" name="color-scheme"/>
 <meta content="Gabriel Munos" name="author"/>
 <meta content="website" property="og:type"/>
 <meta content="fr_FR" property="og:locale"/>
 <meta content="en_GB" property="og:locale:alternate"/>
 <meta content="zh_CN" property="og:locale:alternate"/>
-<meta content="Gabriel Munos · Portfolio TSSR et cybersécurité" property="og:title"/>
-<meta content="Profil professionnel de Gabriel Munos : systèmes, réseaux, support informatique et objectif cybersécurité." property="og:description"/>
+<meta content="zh_TW" property="og:locale:alternate"/>
+<meta content="https://kami477156.github.io/" property="og:url"/>
+<meta content="Gabriel Munos | TSSR · Admin systèmes &amp; réseaux · Cybersécurité · Brignoles (83)" property="og:title"/>
+<meta content="Portfolio de Gabriel Munos, technicien supérieur systèmes et réseaux (TSSR) en formation à Brignoles (Var) : labo Active Directory, Linux, réseau. Recherche un poste d&#x27;administrateur systèmes et réseaux ou de support, avec la cybersécurité comme cap." property="og:description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@300;400;500;600&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&amp;display=swap" rel="stylesheet"/>
@@ -64,7 +67,27 @@ h1, h2, h3 { font-family: var(--f-title); color: var(--text); }
 .lang { display: flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
 .lang button { background: none; border: 0; color: var(--muted); padding: 4px 10px; font-size: 13px; cursor: pointer; }
 .lang button.on { background: var(--red-soft); color: var(--red); }
-@media (max-width: 900px) { .links a:not(.keep) { display: none; } }
+@media (max-width: 900px) {
+  .burger { display: inline-flex; }
+  .links { position: absolute; top: 58px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 2px;
+    background: rgba(10,10,11,.98); border-bottom: 1px solid var(--line); padding: 10px 20px 16px; display: none; }
+  .links.open { display: flex; }
+  .links a { display: block; padding: 10px 0; font-size: 15px; }
+  .links a.active::after { display: none; }
+  .lang { align-self: flex-start; margin-top: 10px; }
+}
+.burger { display: none; background: none; border: 1px solid var(--line); border-radius: 8px; color: var(--text);
+  width: 40px; height: 40px; align-items: center; justify-content: center; cursor: pointer; font-size: 16px; }
+.burger:hover { border-color: var(--red-line); color: var(--red); }
+.links a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 1px; background: var(--red);
+  transform: scaleX(0); transform-origin: left; transition: transform .2s; }
+.links a:hover::after { transform: scaleX(1); }
+.links a.active::after { transform: scaleX(1); }
+@media print {
+  .site-nav, .totop, .term, .k-btns, .contact, .net-btns { display: none !important; }
+  body { background: #fff; color: #111; }
+  .block { border-bottom: none; }
+}
 
 /* ---------- hero ---------- */
 .hero { position: relative; padding: 96px 0 70px; border-bottom: 1px solid var(--line); overflow: hidden;
@@ -92,7 +115,7 @@ h1, h2, h3 { font-family: var(--f-title); color: var(--text); }
 .term-bar { display: flex; align-items: center; gap: 7px; padding: 11px 14px; border-bottom: 1px solid var(--line); background: #111114; }
 .term-bar i { width: 10px; height: 10px; border-radius: 50%; background: #2a2a2f; display: block; }
 .term-bar i:first-child { background: var(--red-deep); }
-.term-bar small { margin-left: auto; font-size: 12px; color: #77717a; }
+.term-bar small { margin-left: auto; font-size: 12px; color: #8c868e; }
 .term-body { padding: 16px 18px 18px; height: 300px; overflow-y: auto; cursor: text; scrollbar-width: thin; scrollbar-color: #2a2a2f transparent; }
 .term-line { white-space: pre-wrap; word-break: break-word; margin-bottom: 3px; }
 .term-line b { color: var(--red); font-weight: 400; }
@@ -153,7 +176,7 @@ h1, h2, h3 { font-family: var(--f-title); color: var(--text); }
 
 .contact { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 22px; }
 footer { padding: 40px 0; text-align: center; color: var(--muted); font-size: 14px; }
-footer small { display: block; font-family: var(--f-mono); font-size: 12px; margin-top: 6px; color: #77717a; }
+footer small { display: block; font-family: var(--f-mono); font-size: 12px; margin-top: 6px; color: #8c868e; }
 .totop { position: fixed; right: 20px; bottom: 20px; width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--red-line); background: var(--card); color: var(--red);
   cursor: pointer; opacity: 0; pointer-events: none; transition: .25s; z-index: 15; }
 .totop.show { opacity: 1; pointer-events: auto; }
@@ -243,30 +266,134 @@ code.cmd { display: inline-block; background: #0d0d0f; border: 1px solid var(--l
 
 
 .projects-intro-note{max-width:850px;margin:14px 0 28px;padding:14px 16px;border-left:3px solid var(--accent);background:rgba(127,127,127,.08);border-radius:0 8px 8px 0;color:var(--muted);line-height:1.65}
+
+/* ============ Novembre 2026 : objectif, projets, labo réseau, formation ============ */
+:root[data-theme="dark"] { --accent: var(--red); --ok: #3fb950; --warn: #f0b429; --info: #5aa9ff; }
+:root[data-theme="dark"][data-l="tw"] { --f-text: "DM Sans", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif; }
+/* repli identique au reboot de Bootstrap (utile hors-ligne) */
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+@media (max-width: 1100px) { .links { gap: 14px; font-size: 13px; } }
+.lang button { min-width: 32px; }
+@media (max-width: 520px) { .lang button { padding: 4px 7px; min-width: 0; } .site-nav .container { gap: 8px; } }
+
+/* objectif */
+.obj-grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); }
+.obj-card .pill { margin: 14px 6px 0 0; }
+.obj-card .av { margin-top: 18px; padding-top: 14px; border-top: 1px dashed var(--line); font-family: var(--f-mono); font-size: 12.5px; color: var(--red); line-height: 1.5; }
+.obj-card .av i { margin-right: 6px; }
+
+/* projets */
+.proj h4, .formation h4 { font-family: var(--f-mono); font-size: 13px; color: var(--red); margin: 20px 0 6px; font-weight: 500; }
+.k-card.flagship { border-color: var(--red-line); padding-bottom: 28px; }
+.k-card.flagship:hover { transform: none; }
+.status.live { color: var(--red); border: 1px solid var(--red-line); background: var(--red-soft); }
+.proj-cols { display: grid; gap: 8px 36px; grid-template-columns: 1.4fr 1fr; margin-bottom: 8px; }
+@media (max-width: 760px) { .proj-cols { grid-template-columns: 1fr; } }
+.tick { list-style: none; padding: 0; margin: 10px 0 0; display: grid; gap: 8px; }
+.tick li { display: flex; gap: 10px; color: var(--muted); font-size: 15px; line-height: 1.5; }
+.tick li::before { content: "✓"; color: var(--red); font-family: var(--f-mono); flex: none; }
+.tick.next li::before { content: "→"; }
+.more-h { font-family: var(--f-mono); font-size: 13px; color: var(--muted); font-weight: 500; margin: 38px 0 14px; letter-spacing: .02em; }
+.k-grid.more .k-card h3 { font-size: 16px; }
+
+/* laboratoire réseau (style Packet Tracer) */
+.lab { margin: 26px 0; border: 1px solid var(--line); border-radius: 14px; background: var(--card); padding: clamp(16px, 3vw, 28px); }
+.lab h3 { font-size: 20px; margin-bottom: 6px; display: flex; align-items: center; gap: 10px; }
+.lab h3 i { color: var(--red); }
+.lab .help { color: var(--muted); font-size: 14.5px; max-width: 720px; margin: 0; }
+.net-grid { display: grid; gap: 20px; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); margin-top: 20px; align-items: start; }
+.net-grid > div { min-width: 0; }
+@media (max-width: 900px) { .net-grid { grid-template-columns: minmax(0, 1fr); } }
+.net-canvas { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background-color: #0b0b0d;
+  background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px); background-size: 24px 24px; }
+.net-canvas svg { display: block; width: 100%; min-width: 560px; height: auto; }
+.dev { cursor: pointer; outline: none; }
+.dev .dv { fill: #16161a; stroke: var(--red); stroke-width: 2; }
+.dev .dl { stroke: var(--red); stroke-width: 1.7; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.dev .dd { fill: var(--red); }
+.dev.plan .dv, .dev.plan .dl { stroke: #8c868e; stroke-dasharray: 5 4; }
+.dev.plan .dd { fill: #8c868e; }
+.dev.plan { opacity: .8; }
+.dev .dn { font: 600 14px var(--f-mono); fill: var(--text); text-anchor: middle; }
+.dev .di { font: 12.5px var(--f-mono); fill: #a29c9e; text-anchor: middle; }
+.dev.r .dn, .dev.r .di { text-anchor: start; }
+.dev .ring { fill: transparent; stroke: transparent; stroke-width: 2; stroke-dasharray: 4 4; }
+.dev:hover .ring { stroke: rgba(229,72,77,.45); }
+.dev:focus-visible .ring, .dev.sel .ring { stroke: var(--red); }
+.lk { fill: none; }
+.lk.ok { stroke: var(--red-deep); stroke-width: 2.4; }
+.lk.plan { stroke: #8c868e; stroke-width: 2; stroke-dasharray: 6 6; opacity: .6; }
+.lk.flow { stroke: #ff8a8e; stroke-width: 2; stroke-dasharray: 3 11; opacity: .55; animation: netflow 1.6s linear infinite; }
+@keyframes netflow { to { stroke-dashoffset: -28; } }
+.led { fill: var(--ok); }
+.pkt rect { stroke: #000; stroke-width: 1; }
+.pkt path { stroke: #000; stroke-width: 1.3; fill: none; }
+.net-legend { display: flex; gap: 18px; flex-wrap: wrap; font-size: 13px; color: var(--muted); margin-top: 12px; }
+.net-legend i { display: inline-block; width: 22px; height: 0; border-top: 2.4px solid var(--red-deep); vertical-align: middle; margin-right: 7px; }
+.net-legend i.plan { border-top: 2px dashed #8c868e; }
+.net-legend i.up { width: 9px; height: 9px; border: 0; border-radius: 50%; background: var(--ok); }
+.net-info { background: var(--bg2); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; min-height: 150px; }
+.net-info h4 { font-family: var(--f-mono); font-size: 15px; color: var(--red); margin: 0 0 6px; font-weight: 500; }
+.net-info p { color: var(--muted); font-size: 14.5px; margin: 0 0 12px; }
+.net-info dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; font-family: var(--f-mono); font-size: 13px; margin: 0; }
+.net-info dt { color: var(--muted); font-weight: 400; }
+.net-info dd { margin: 0; text-align: right; word-break: break-all; }
+.net-btns { display: grid; gap: 10px; margin-top: 14px; }
+.net-btns .k-btn { text-align: left; font-family: var(--f-mono); font-size: 13.5px; padding: 10px 14px; }
+.net-btns .k-btn i { width: 20px; margin-right: 6px; text-align: center; }
+.net-btns .k-btn[disabled] { opacity: .55; cursor: progress; transform: none; }
+.net-btns .k-btn.ghost { border-color: var(--line); color: var(--muted); }
+.net-events { margin-top: 18px; max-height: 214px; overflow: auto; border: 1px solid var(--line); border-radius: 10px; }
+.net-events table { width: 100%; border-collapse: collapse; font-family: var(--f-mono); font-size: 12.5px; }
+.net-events th { position: sticky; top: 0; background: #111114; color: var(--muted); font-weight: 500; text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--line); }
+.net-events td { padding: 7px 12px; border-bottom: 1px dashed var(--line); color: var(--text); white-space: nowrap; }
+.net-events td .sw { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 8px; }
+.net-events .net-empty td { color: var(--muted); white-space: normal; }
+.lab .warn { margin-bottom: 0; }
+
+/* formation et parcours */
+.formation .where { color: var(--muted); font-family: var(--f-mono); font-size: 13.5px; margin: -2px 0 0; }
+.badges { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0; }
+.bdg { font-family: var(--f-mono); font-size: 12px; border: 1px solid var(--line); border-radius: 999px; padding: 3px 12px; color: var(--muted); }
+.bdg.hot { color: var(--red); border-color: var(--red-line); background: var(--red-soft); }
+.formation .pill { margin-top: 12px; }
+.tl > div.future::before { border-color: #8c868e; background: var(--bg2); }
+@media (min-width: 1100px) { .roadmap { grid-template-columns: repeat(5, 1fr); } }
+.net-hint { display: none; font-size: 13px; color: var(--muted); margin: 8px 0 0; }
+@media (max-width: 900px) { .net-hint { display: block; } }
+.note strong { font-family: var(--f-title); }
+
+@media (prefers-reduced-motion: reduce) { .lk.flow { animation: none; } }
 </style>
 <link href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAE40lEQVR4XsVXTWgcZRh+5puZ3Z3dmf1JskmbqGlMtSmECsHaeFBbEFqoN6WIih4MQk8etCDtveBBELxJL+3BevAgSL20YFCwkkpMtdZYFW3zQ5qf3U129ndmvk/ed7MaC9nZxJQ+MGSY5Pue5/17vnxaPJ5QAoCrJDqEjlfsDJ6N2fyuoLAT0KAhJwN8XXXxiZvnd1sTkAA0O55QFSUxEo3jdKobRSUxXnEx7dUQQEEDti2juVaHhiEzisOWDUcTOLu6iMlaGZYmoMGy1MFIHB909uKCm8f5Yg6ekoBGy3cQSsHUBN5wOvC6ncE7K/O4Vi9D60w46lz2IVwqreHc2jISugHStVPpb4LKIKFQCnyMJbtwPJHE2NIsxMt2GkUpOXoiJ1DqqT47+dCeBOIgLuIkbnE4lsBXFRd1Jdcjv38gCZRd4iJO4hYZoWPaq3LNt5N26pTm0w6YQ9OYk7gFqaJUbwVEqGtUVSBQCp5S/JPGufk9DMRJ3I2ibwFEUAkC+DKALnSkDAOmEPCkQsH3IKVE3DDaHt8tCaAIi56HwUQCL+7qxWgqjb5YDHHdYFEz1QouLd3Fxfk5+ABMLmtrtC2A0l0KApzsH8C7A4PYHY0iJgRqUnIJokJg2HFwrKsbL2R78OaN6ygHAYwQEW0JEJoG1/NwZu/jODP4GEe7UKvhs4V5fFvIo+B56LcsvPVwPwasOI52deP9fftx8saPMA0DSm2eh1ABVHPX93As24NTA4NY830s1msY++k6JvK5hmPSIwNcWVnG5YOjyJgmnst0YiCewF+VMmdnMwmhAqRSiGgCb+95tHF4ADg1fRMT+RWko7EN3R/BQrWK07em0WGaGM+tYLFeR6QFOaGlAEo9WedIMo0DjsPk3xUKuLy8BCcSRV02BrgYBCCvp0x8Pj8H0Hddh2WavKYVWgrg00wqHLAdxHWdBV0t5CCV/M/GT6cziOk6Z4tGkqaFxE2urXKDthIRKoAi64lGuRd8pTBbrXIhaFMi2WPF8eWTh5A0DP59yfdh6Tp+dos4MnGVg291pIf2AIGi+nejZkSNGbcNA9/kcqjKgOs9bDvICoGp4hqKvgfHMLlPNkO4AA1Yqtc4vXSQ7EvYUHRwaeCy/FZy8dLU96gHPvYmHFx5apRn/1bJBWTr9BMaoW0CajEhdFxbLbDhUEOe2NWLoWQK+WoVRd9nc+JmlBLPZDqQNEw2oF9LpfUD7n80IUVNUf6wuoovFu/itd4+3u3iEyP4eOY2brou90ZfNIZD6TSe78zyGvr2R7kEPWQEQ8eQQC5GPfDerV/QETFxtLMbKdPEh/uHUQskexAZDf0NOeSdagUf3f4Tv5dLbNUkaNtjyALILDSNHfDVqUmc2N2H49luPGJZsPVG55MVk+ORLdNhNFep8IkYdhC1lYGmiObJdn72Di7MzbDdUtdThGUp4fo+mQYiugHHbN35GxE+BeugaGieaXN6p0Zzg4C/kUHRONI7CWo1dvfC4A1COnWjiObm1Gj6hnVhtb4XxMnceRlgyIyx4zX8rT1QFjY+7YI5lGJO4hbj1RKOWDafePR/e/sStg4uERqnK3ESt/jULcARgm8rZDQEukpRinbyoT0JxEFcxEncxor0cTa/yFczGurG1Sy4b1ezsVT2n6sZcT/4y+mDvp7/Dda2cc/YwYlhAAAAAElFTkSuQmCC" rel="icon" sizes="32x32" type="image/png"/>
 <link href="data:image/png;base64,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" rel="icon" sizes="192x192" type="image/png"/>
 <link href="data:image/webp;base64,UklGRoISAABXRUJQVlA4IHYSAABwcgCdASqQAZABPm02lkekIyIhqHS4oIANiWNu6ei4E+XPblm/gT/lf03u2sm+G/uf7N/379zPnW4J6efIH1T9HflVz6iN/Vn4x/mfb58CfUX+sP8j+f/0EfqR/y/8B1jPMT/Tf9L+13vUenP+//4D9b/9j8gH9K/63WaegN+wHpt/up8Jn7eftV/+Pe6///WAf//rP+u3+v8CX7n+sPqbX6gJ+3Z2G7Au9KgA7t76rzJ/pf8V08d76eU/4PLOpCBgleQTk7/92LBIbCnoR7HKH/uYtWcV+UgDXMU6JpkLZiqKvyM+VADi64jgkW3ou16o0KsRJYiSxEliJLESWHyai4W5rlXGij1+WRmTOxlcoKg/3S1ccnrGtR46pi01wAAAAAAQUUsuVvnjdMRJKJe4alm6uI8PBmHOgUzMzMzMzMzTinD8FNbgmQids9q1QqyK06RozMzMzMy6JJNAErWg6jN4LGc3///////////+af4nTuVmZmZmY9RwFNFi/F1dEHdxXd3M5gf/vk6t5V0V0CiK1EN1jPnAJEQioVWnTyWk65WZmKQOLpE6OBYgneYNaNUmiqy8AzBLGBZnOfSdcrMzBiv3C3+e5XnUPtlJmjDMkyzDbTsplZMnVwrE4WeCyWjW/ARAnPyBYUH1nKaYJI2R86nUkX7kearT1kUnXKzMOBKDxctq7bK8a4AC0MzM6bXYitxNixwHEX55L2+Py5HFovtHZCmdrImU2eUAg07N2J0WO1Xq2gUVoL5Vrr3eyoEpADeI+gC0vxdXRB3cV3Gi9Az4ANiwu/mcX9tBnCWBPs+iaenSTfqTrlZmDFd18URT4DliQLKwDOeDm7ExkmEtLMA63QX4urog7uK7iUb1uhmu02iYjjsmRbIZch8tp6iMO+4AGSqdOwd3d4gQIO7iu7iV74ZA7b5/qkEr5nOm3U7XRjR5Tc6aMWeLXd4gQIO7iu7u8mVKT2aAxO7vAzZ7ter+70WL8VVVVVVVVUwDC1ArqPp40WN0AI0ZmZmZmZmZmZdNe6r955AdvAvau3EuxiP////////////2d3pSygRR2CaPAkyKLEs/hnqOLE5Yxrf/////////2MvY2RoimHuA5ZJ9y8m4aMNEYxjrcHR9+KuW7QoxGZz9aW7SiMzZi4G59YJt3whEw+JkCxtctX3KkfwiIQbvfG57OMZXnGmrCubCcYyvONNWFcrg4wYAD6rc+3sAoQAA/vpLkXhWtd3lpPpq8GEiyipq5/YF5aKNzwcHhtRMy7D+GPAEkkNprSyLuAIN6W+m1ntzXrRasztCqT7fCtgIcioPLuJzDjwjRT+LZ4MQsrAbznGE49p5PFL6BEtbCUf/89JIVpnjAgD8glWI2gYODD2tNHnCiIM4oWQpFGp97FycqSB5qGwqKwyelffwKKUwmoN6iwmwx7iumXcmY/TfZvKPRrLV30jDusN3byxWVIqT+4HZIWxdsmFHA0mlwS8ghf0OGpbYYOUzNWH5XJgR31hZtr2xVtRBv3p+7rVlyj332kfiatKjbeEjiaSsvw98z5x7eAUC6i/DLtpfDB212lIK/FtUPY06CgAbtejNPRZa4a25rKEYjnVKZXw8aLco9EwGuMKsmiprEg/O8af0JSNJUF27U1/gQ0VI/Q70c2jld/aa6PXeD5douScU+D0kodKhVQNJ+PCNxAhNA+QI2W4gYskIRIeYJbsNILTcvZuCZpVVvQwmHrVLt2l2NnyEGLpQ+Bu++NB1Jpu+BIpLUC9o9Jzqf3mGW3zQCVEB7GHoEvBA/0tc/kqCuR1cjejzgXVRXgsk6EU3oYoMCwMI2iXPSkJZwDgx7IRyeXq3k0Gz26kTo0C2PWnUSPDZ334Lyzec55lRZceLaWRJ6VWqS+RSQ2z+ID/fA5klbot4Tt/M6fQSu5uWQcjIyhni9aoBFCgkSyTjAsT5fRbbawa017QKNaa8jKvkZNoAAALg+zcryJHXbUm/OVD1Q7Bq1Z6nL4WJ88j5AL+q32XgS3ke+CRgq8naFjuqv5ODUHjWZcKJZfR/wzd3MJZdpBvkmxk8KB8v0yetF9a+mLYgo/Ycc2tRmQ+XV4/P5GKCG9uGAqgsJ3vlGf/9SSXhqpSNIbrYU32OUBHvajM3tGXIXhw45PlnNzH1GDPcnN65SPKgAAAw3Qq+3dxvfDbXm5/u28AsXw2WKRl3ygRiRJ128CIL0zaubnbe07y+zohosrrtI3RNfCkpfQi7iAufu/rNnp9uQO+SwRFMMGNTGxyY3gts5N0rjaARpPLeT1Acb5xBktMEkKOo5jiAh4ouAd1gFxn5tA8pfQmjwdmFZ+YfCl0AL/uR5q/ktSKWyEh3kZ0p6gRV03xmLxCvpI1Z6OObmBXmWL4SKbqjmJCPeWcaTc/wa6qYZH3P4ceJ2oiPk3x2FS145dc+Kh+hcbdcQJ8fgADNNIJjTiyd7BM773SiK4d9TfWbEHN/5ewNFVaELUZTJ7oAVRdlPlySD2HUTjpJERGWmz9UrIlZoO5Z58HzsGLricJcgbWR7eUKKsthAsWnuGrPqNZet3uL56OGyjhFImcFDapEe20HhViC6F0JlA0txm3ZftSINeoHLXHa4RvDS95a7izelVWwiEsQrkvIj426jrVeIdoqOPw5NvPav8y5vfDNVXgjhcbXAx9O1r131HCXABZXNh3h3SVxrElg5u4Py61R9IEVVh2fMEn6OU6Jkyjw60i2A+7AU1WAE0ut9LkTaY7PtFGygW20mKuFvxTnQQ448J+obpMvNbzrDhX3pPeTAnnBbF6+wlxE8VIhlap9PbxzY/AW+rY+bdgcH7KF01HjbPk5zB5NBw0qInlSpnEZuzXC8BQE0jkz+ehRdBYl1J65TFl2awKprutyYFSrp4QSYsAZY/aiwcr2UpMxtxguQtLcWP9Gva8EWT62EuTh3CdAMavMUgtxmM/+JXoHU+gHMkWnPgG11fOHxxOpnUZb9vr9GwVHWmW0qP6/oFP8US0t78XwhrmLH9ESJKYOdbT58NEJHxPCLxfKNxf1unPftbZWSqZhwcQ77dl64LkF2SjwQerA+QKi6PlBD5b2e9e6hNRTQF3MnVbhkAmApDW0YJm4jByI9pa6MMLrXGkxR/EOxbKjWJBynVST3nREfy0C6HzNt+2q8+1DTLDKR7rx5KvWgo1waangrDw4yKW4jK3PSOqQK7dGMqIoVEJ+X7MS3Cct3IL2i03wzBMtYdGCY+WXHaAFVlQ43ft8p8VaYwKr2vJUByDn1pVBCPd5fsvDkQRguqTO8GNpZa50+yZC/cUmJK8NADZITTVvuq6/pj7cgb6n8x7Yh0LucGl9jSezvbon/rk+lZZYsNWWDlyA67xd73DD67Zj+X7ZHWWf8U9W6r1U07djomS6CoXYjiP6IMWKhsmmCRSy29LiWqjjQPrMN7353jIWKTPX23sXGaU/VGBH2v4Ft1cYtcHV95mdTSVgKtKTKcEFsX/NnOmy+EuxvW0czABYNr0nji5kE40LkSl5rd3o/b30sco0gsh/r7ZcIH1fTRorefNGf6UKdcT8OoQBp9cWDcegkwduYHcat6aD0sqhoehlLP1GbjooKnIijvsbQ8XrQk0GEGjheNm5rxFpGnwpN46HEVchVWsruO7zJdzi4w1H5RJIMcYVx/0ARUPnRz3PyUU3wL+Bu2O1DvaGBsTTgauaSNTZrIynk/gJxibUFHqkRAQ73hvpB6c9AhGEUKL/EcJEAAJd/zCmfpanFlaK9jSK/bzFm060zMfkWX0+wXiYvR7++DDjOrB5giHmOf09BUcxkLCobs+UfiI81NvKEZnPUJVuHsep2hxbR1csVcZGvEEtfpsChTPw8HdkJsoaRdTT5/SPj5Sbtp6qHsH6PwQywP0V8BgZAw8VrpiWLk16tBhjXb0A2MKqz5keH6heYrbW8kwN7sI4Qm1qdU9a8MasEpWVJ9eHvW4avSvkaLXRiYGm+xUI+GFGQrF3PQe5wmSnD0sNReIwLBTtuFcwbkcvVdkR/NVpdYHfUTyRF+onjcCFGFKwiwFsmr7jfw7iv+75Am90as1/ZEVkeyeOIrxlE5Z8s5LMzDJBSokxRh19o9YKB/y6dhfXPHDnou73sUDJm341nX5XFrZhF4lu6TRmqfEYqNlyxDJ6MFqxDeGomZ1zngD5feQIBdPQxyTv9YRBoh1ZAA2HyKyF8lZx6bA5zF5VMkUMxbvigoPmWzuRbQZgj1vMHi5I/mcU7ETJ++H2Ocdh3+sgvuLmYuvhCmQTJATeqniTOfIC/DM5EaP/yvKQLZguyB8D8R7mzY9aNEuxlZezB77t6atTPi71W2WECoauNVLdFnIKcFOsgCbFDtWM6v08Ez2zBXtd6HaDzJtPTkq9iEqDsBcDOCNghkPOxOyiL1nrBmmOiuRKGo4IKQFPxCzJ4cJKEvGhkAGiR3wUu42nRwwZQ154dAVYWarJpHPx+KfuGfxe7iFfroa5P/srx8CCPuthoVnRtuvwMAhMr8VsGFArWP1KwNtzHYl2kf8hekKXGbu0DWOTQdPvyCoWC8cuYsPkNPEL0Pz6O8uT3pKqszjjjrR3WG6qhDN0gcXbaOQLe5YHNOqWD7fNH38sqZhth159+Ew+e3ASbLuJmB/Xi4JJmkEsA6KbZK+K1bEYogeIxgRJj534g+BndyYCHNJxO+LnnW68bsTHGfx3ao8ZJHy1lFPkVilEvXqySwIU2yCsetQ1gRYSKAePPrYytBsC3tEy/S5z3XRcQ/tATI5yIjF6es0/rIWkPST2hvUshSKV2V/pxZx9JBj17z2uOOixmoHUN2As7RTM3VvDwAQOkhCk2mUaw7SdBQF5UAZewBKg6yb4C8PSNt6rY+76AqR7HFvfvoEuMu4z441wx5y7T1i/V/+jIs9iH3ic07iNcqRDW38izLos2u4AxnyBSkC+KAgZRLiEXAo2VZOj+5I017n71nCD+97VLeua3PZzKXcCiYFe+CqnEG7pNB66cn4EvGIJE15AKJ92htEDt9I7MzFJB0yUsLshSixYoaWZzRtJoa34gug4UaTOPgqQnn860xj3cX4lJpoJIFlLphYZT/H/COAkX/AAAAAAAHLk1/nmPFR5FQ5aBYAE2JWpJw/t2uRdpin0IAZY0WSwLmZfldCYsVJGTTjJCZEhrb+gYwt7P2tKDShjq/84sTGl8Y+7h/RmMJvgAIH2XXQOldRYYmEiba7oWjDcDwEkQIHGK0Z3CVzo5HXUjyfxiRZCNU7t1Sg3nHk+8vFFZlP6EZ23XLm6vG6/dldVxY1hMkvFZietdLcLHh6SrmL0GYykeZTjPK2SDwy8+rzVBsItchXTY3mYCZqwnR4iNyPlIgelwYpMnQAL99c5glAvgHj3dgxZqjCeSSQb6bb5jfKPkZ7+U8QoHDNJUvq09MyFJEBtawdqPvjv6jDlKuzlMp1HhhzfhRMY7SGJk0iQVecLn+JAi4PSFJgDA/mWCszwiIhqyR18aKFKa7+R+V8EE2uQ6XaQN/8txV0PnYot6jR5PBAt3cSkDUlphXRe8VKE4uhAWk4suADfC40FFbADNAIGDzKaiw1oCYxp9rL24i6+7c8Yz+GrnbRWb+gyWmPMBUEk4HwUVus+IBfCrBHuIAWpBjZSMlrSJr+MmdMsCb/6eAr+oGJjZS/yApHY3T0egUTi5s7Le8qSgtP139ziIqFd56UbyJer2DqbupBj1RebAg/0m0RJ98Uu9K5XbJd2FcYEbah9irw4xJE8RVsMh6epVB1dbWpBKPGeeKwVw+olbTGxLqKEyWjIDI89J1FNjTz6v3RPnPBjnGFfNxgqpGDDnh65FsDX+Rvg/XEDqjxieLpA7hvUdJazjz1XPl+GJ10RI0ep00zwos7FNRbYcvjw4rGfi2tqTKWL+Lq+sokyetJEG6uW+gjMMSB23CCul+HVsYsAbjXnYbDvweEmY+Evwf/3rEldmGCe9r9ypWP6srSfIIA93XdRpq9/JXmANas7KXzjMHusxE/vmnjtSqANALDG5YThq1G1z1o8SVnYJH1OV5MNiw8GSxedInQ2Y8iVm87ebvH0mkN1LRuQo7GxCFzODcEk01gWPeIzNe9pl4zzyyNt75fBRljQrrmk3vbpdbk0U7cbmzZDwyKTNljgWFbLHAsLZLOahFdRdmCQgZ7j1T+C74g3ApWFd32v7MCx7fIPa+bS8q9t9ltZFyXQL2JdTxaJNe9RJ5JkjQCjlEoiKQZXo44B/BpL8eW/ezduP8YzEmljCItnD/OYtK0Vu3PuxAz+YAAA" rel="icon" type="image/webp"/>
 <link href="data:image/png;base64,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" rel="apple-touch-icon" sizes="180x180"/>
 <script>document.documentElement.classList.add('js');</script>
-<title>Portfolio TSSR | Étudiant Systèmes et Réseaux – Cybersécurité · MODE 83 Brignoles</title>
+<title>Gabriel Munos | TSSR · Admin systèmes &amp; réseaux · Cybersécurité · Brignoles (83)</title>
+<link href="https://kami477156.github.io/" rel="canonical"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Gabriel Munos", "jobTitle": "Technicien supérieur systèmes et réseaux (en formation)", "url": "https://kami477156.github.io/", "email": "mailto:gabrielmunos337@gmail.com", "address": {"@type": "PostalAddress", "addressRegion": "Var", "addressCountry": "FR"}, "alumniOf": {"@type": "Organization", "name": "MODE 83"}, "knowsAbout": ["Active Directory", "Windows Server", "Linux", "Réseaux", "PowerShell", "Virtualisation", "Cybersécurité"], "sameAs": ["https://github.com/Kami477156"]}</script>
 </head>
 <body>
 <a class="skip-link" href="#main-content"><span data-i18n="skip">Passer au contenu principal</span></a>
 <nav aria-label="Navigation principale" class="site-nav" data-i18n-aria="aria_nav">
 <div class="container">
 <a aria-label="Accueil — Gabriel Munos" class="logo keep" href="#top"><span class="brand-mark">GM</span><span class="brand-name">Gabriel Munos</span></a>
-<div class="links">
+<button aria-controls="main-links" aria-expanded="false" aria-label="Menu" class="burger keep" id="burger" type="button"><i class="fa-solid fa-bars"></i></button>
+<div class="links" id="main-links">
 <a href="#about"><span data-i18n="nav_about">À propos</span></a>
+<a href="#projets"><span data-i18n="nav_projects">Projets</span></a>
 <a href="#skills"><span data-i18n="nav_skills">Compétences</span></a>
-
 <a href="#cyber"><span data-i18n="nav_cyber">Cyber</span></a>
 <a href="#path"><span data-i18n="nav_path">Parcours</span></a>
 <a href="#contact"><span data-i18n="nav_contact">Contact</span></a>
 <div aria-label="Langue" class="lang" data-i18n-aria="aria_lang" role="group">
-<button aria-pressed="true" class="on" data-set="fr" type="button">FR</button>
-<button aria-pressed="false" data-set="en" type="button">EN</button>
-<button aria-pressed="false" data-set="zh" type="button">中文</button>
+<button aria-pressed="true" class="on" data-set="fr" lang="fr" type="button">FR</button>
+<button aria-pressed="false" data-set="en" lang="en" type="button">EN</button>
+<button aria-pressed="false" data-set="zh" lang="zh-CN" title="简体中文" type="button">简</button>
+<button aria-pressed="false" data-set="tw" lang="zh-TW" title="繁體中文" type="button">繁</button>
 </div>
 </div>
 </div>
@@ -276,12 +403,12 @@ code.cmd { display: inline-block; background: #0d0d0f; border: 1px solid var(--l
 <div class="container">
 <div class="hero-grid">
 <div>
-<p class="badge animate__animated animate__fadeIn"><span class="dot"></span><span data-i18n="badge">TSSR · ouvert aux opportunités cyber</span></p>
+<p class="badge animate__animated animate__fadeIn"><span class="dot"></span><span data-i18n="badge">Recherche : admin systèmes &amp; réseaux · support</span></p>
 <h1 class="animate__animated animate__fadeInUp">Gabriel <span class="acc">Munos.</span></h1>
-<p class="job animate__animated animate__fadeInUp"><span data-i18n="job">Technicien Supérieur Systèmes &amp; Réseaux</span></p>
-<p class="k-lead" data-i18n="lead">Je développe mes compétences en administration des systèmes, réseaux et sécurité, avec une approche progressive et orientée pratique.</p>
+<p class="job animate__animated animate__fadeInUp"><span data-i18n="job">Technicien Supérieur Systèmes &amp; Réseaux · en formation</span></p>
+<p class="k-lead" data-i18n="lead">Je monte et je documente des labos d'infrastructure (Active Directory, Linux, réseau) pour devenir administrateur systèmes et réseaux, avec la <strong>cybersécurité</strong> comme cap à moyen terme.</p>
 <div class="k-btns">
-<a class="k-btn fill" href="#skills"><span data-i18n="btn_skills">Explorer mes compétences</span></a>
+<a class="k-btn fill" href="#projets"><span data-i18n="btn_projects">Voir mon labo</span></a>
 <a class="k-btn" href="#contact"><span data-i18n="btn_contact">Me contacter</span></a>
 </div>
 </div>
@@ -296,10 +423,10 @@ code.cmd { display: inline-block; background: #0d0d0f; border: 1px solid var(--l
 </div>
 </div>
 <div class="stats reveal">
-<div class="stat"><strong>Bac+2</strong><span>TSSR · MODE 83</span></div>
-<div class="stat"><strong>280 h</strong><span data-i18n="st2">de stage en entreprise</span></div>
+<div class="stat"><strong data-i18n="st1_v">Niveau 5</strong><span data-i18n="st1">titre pro TSSR · examen en décembre 2026</span></div>
+<div class="stat"><strong data-i18n="st2_v">AD DS</strong><span data-i18n="st2">labo Windows Server 2022 + client Windows 11 joint au domaine</span></div>
 <div class="stat"><strong>IP · AD · Linux</strong><span data-i18n="st3">domaines techniques travaillés</span></div>
-<div class="stat"><strong>FR · EN · 中文</strong><span data-i18n="st4">portfolio trilingue</span></div>
+<div class="stat"><strong>FR · EN · 中文</strong><span data-i18n="st4">portfolio trilingue · chinois : débutant</span></div>
 </div>
 </div>
 </header>
@@ -309,14 +436,15 @@ code.cmd { display: inline-block; background: #0d0d0f; border: 1px solid var(--l
 <h2 class="reveal"><span data-i18n="ab_h2">Qui suis-je ?</span></h2>
 <div class="about-grid">
 <div class="reveal">
-<p class="about" data-i18n="ab_p1">Je suis en formation <strong>Technicien Supérieur Systèmes et Réseaux</strong> (MODE 83, Brignoles, mars – décembre 2026). Curieux et motivé, je veux apprendre au contact de professionnels, être utile sur des missions concrètes de <strong>support et d'infrastructure</strong>, et progresser vers une <strong>spécialisation en cybersécurité</strong>.</p>
-<p class="about" data-i18n="ab_p2" style="margin-top:14px">Mon parcours varié, de la restauration à la viticulture, m'a donné le sens du service, l'écoute et l'esprit d'équipe : des qualités qui comptent autant que la technique quand on fait du support.</p>
+<p class="about" data-i18n="ab_p1">Je suis en formation de <strong>Technicien Supérieur Systèmes et Réseaux</strong> (MODE 83, Brignoles, mars – décembre 2026). Mon objectif : décrocher un premier poste en <strong>administration systèmes et réseaux</strong> ou en <strong>support</strong> pour apprendre dans un environnement réel, puis évoluer vers la <strong>cybersécurité</strong>.</p>
+<p class="about" data-i18n="ab_p2" style="margin-top:14px">Avant l'informatique, j'ai travaillé en restauration, en viticulture et en cave : le contact client, l'écoute et le travail d'équipe m'ont appris à rester calme sous pression et à expliquer simplement, ce qui sert directement en support.</p>
 </div>
 <ul class="facts reveal">
-<li><i class="fa-solid fa-graduation-cap"></i><span data-i18n="f_dipl">TSSR (Bac+2), mars – déc. 2026</span></li>
+<li><i class="fa-solid fa-graduation-cap"></i><span data-i18n="f_dipl">Titre pro TSSR (niveau 5), mars – déc. 2026</span></li>
 <li><i class="fa-solid fa-location-dot"></i><span data-i18n="f_loc">Var (83), PACA</span></li>
-<li><i class="fa-solid fa-bullseye"></i><span data-i18n="f_goal">Objectif : cybersécurité</span></li>
-<li><i class="fa-solid fa-language"></i><span data-i18n="f_lang">Portfolio en français, anglais et chinois</span></li>
+<li><i class="fa-solid fa-bullseye"></i><span data-i18n="f_goal">Objectif : admin systèmes/réseaux, puis cybersécurité</span></li>
+<li><i class="fa-solid fa-school"></i><span data-i18n="f_study">Études visées : licence informatique / cybersécurité (2027)</span></li>
+<li><i class="fa-solid fa-language"></i><span data-i18n="f_lang">FR · EN · 中文 (chinois : débutant, apprentissage prévu sur place)</span></li>
 </ul>
 </div>
 <div class="k-grid reveal" style="margin-top:44px">
@@ -326,9 +454,92 @@ code.cmd { display: inline-block; background: #0d0d0f; border: 1px solid var(--l
 </div>
 </div>
 </section>
+<section class="block alt" id="objectif">
+<div class="container">
+<span class="eyebrow reveal">02 // <span data-i18n="ob_eyebrow">objectif</span></span>
+<h2 class="reveal"><span data-i18n="ob_h2">Ce que je recherche</span></h2>
+<p class="sub reveal" data-i18n="ob_sub">Deux projets, un même cap : l'infrastructure d'abord, la sécurité ensuite.</p>
+<div class="obj-grid">
+<article class="k-card obj-card reveal"><h3><i class="fa-solid fa-briefcase"></i><span data-i18n="ob1_t">Premier emploi</span></h3><p data-i18n="ob1_d">Poste d'administrateur systèmes et réseaux, de technicien support ou d'helpdesk, pour apprendre en environnement réel : tickets, déploiement des postes, Active Directory, supervision.</p>
+<span class="pill" data-i18n="ob1_c1">Admin systèmes &amp; réseaux</span><span class="pill" data-i18n="ob1_c2">Support / helpdesk</span>
+<div class="av"><i class="fa-regular fa-calendar-check"></i><span data-i18n="ob1_a">Disponible dès la fin de la formation (décembre 2026) · Var / PACA</span></div></article>
+<article class="k-card obj-card reveal"><h3><i class="fa-solid fa-graduation-cap"></i><span data-i18n="ob2_t">Poursuite d'études</span></h3><p data-i18n="ob2_d">Licence ou bachelor en informatique / cybersécurité, de préférence en alternance. Candidatures prévues entre janvier et avril 2027.</p>
+<span class="pill" data-i18n="ob2_c1">Licence informatique</span><span class="pill" data-i18n="ob2_c2">Cybersécurité</span><span class="pill" data-i18n="ob2_c3">Alternance</span>
+<div class="av"><i class="fa-regular fa-calendar"></i><span data-i18n="ob2_a">Candidatures : janvier – avril 2027</span></div></article>
+<article class="k-card obj-card reveal"><h3><i class="fa-solid fa-compass"></i><span data-i18n="ob3_t">Cap à long terme</span></h3><p data-i18n="ob3_d">Après 6 à 12 mois d'expérience en infrastructure : technicien cybersécurité, puis red team. Plus tard : sécurité des systèmes embarqués ou poste à l'international en Asie (Taïwan, Hong Kong).</p>
+<span class="pill" data-i18n="ob3_c1">Red team</span><span class="pill" data-i18n="ob3_c2">Systèmes embarqués</span><span class="pill" data-i18n="ob3_c3">Asie · Taïwan / Hong Kong</span>
+<div class="av"><i class="fa-solid fa-language"></i><span data-i18n="ob3_a">Chinois : débutant · apprentissage prévu sur place</span></div></article>
+</div>
+</div>
+</section>
+<section class="block" id="projets">
+<div class="container">
+<span class="eyebrow reveal">03 // <span data-i18n="pr_eyebrow">projets</span></span>
+<h2 class="reveal"><span data-i18n="pr_h2">Labos et projets</span></h2>
+<p class="sub reveal" data-i18n="pr_note">Je construis mes labos moi-même, je les documente et je les fais évoluer. Chaque carte indique son état réel.</p>
+
+<article class="k-card proj flagship reveal">
+<span class="status live" data-i18n="st_live">documentation en cours</span>
+<h3><i class="fa-brands fa-windows"></i><span data-i18n="lab_t">Lab Active Directory · Militech</span></h3>
+<p data-i18n="lab_d">Domaine militech.local sous Windows Server 2022 (VirtualBox) : un contrôleur de domaine et un client Windows 11 joint au domaine, sur un réseau interne isolé.</p>
+<div class="proj-cols">
+<div><h4 data-i18n="lab_h1">Ce que j'ai mis en place</h4>
+<ul class="tick"><li data-i18n="lab_1">Contrôleur de domaine MILITECH-DC01 (AD DS) · 192.168.91.10</li><li data-i18n="lab_2">OU racine, OU par service et groupes globaux GG_&lt;Service&gt;</li><li data-i18n="lab_3">Script PowerShell de création des OU, groupes et utilisateurs</li><li data-i18n="lab_4">Client PC-CLIENT-1 (Windows 11) joint au domaine · 192.168.91.30</li><li data-i18n="lab_5">Connectivité validée (ping après ouverture de la règle de pare-feu ICMPv4)</li></ul></div>
+<div><h4 data-i18n="lab_h2">Prochaines étapes</h4>
+<ul class="tick next"><li data-i18n="lab_n1">GPO, partages et droits d'accès</li><li data-i18n="lab_n2">Segmentation réseau, pare-feu et DMZ</li><li data-i18n="lab_n3">Supervision des journaux (Sysmon, Wazuh)</li></ul>
+<p class="warn" data-i18n="lab_doc">Document pas à pas (PDF) : bientôt en ligne.</p></div>
+</div>
+<span class="pill">Windows Server 2022</span><span class="pill">AD DS</span><span class="pill">DNS</span><span class="pill">PowerShell</span><span class="pill">VirtualBox</span>
+</article>
+
+<div class="lab reveal" id="lab">
+<h3><i class="fa-solid fa-diagram-project"></i><span data-i18n="net_h">Topologie du labo</span></h3>
+<p class="help" data-i18n="net_sub">Façon Packet Tracer : clique sur un équipement, ou lance un échange pour voir circuler les paquets. Trait plein = en place, pointillés = prévu.</p>
+<div class="net-grid">
+<div>
+<div class="net-canvas" id="net-canvas" tabindex="0" role="region" data-i18n-aria="net_region" aria-label="Schéma réseau du labo (défilement horizontal possible)">
+<svg id="net-svg" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="group" data-i18n-aria="net_aria" aria-label="Schéma du labo : un contrôleur de domaine et un poste client reliés par un réseau interne. Pare-feu, DMZ, VM d&#x27;attaque et supervision sont prévus."></svg>
+</div>
+<div class="net-legend"><span><i></i><span data-i18n="net_l_ok">en place</span></span><span><i class="plan"></i><span data-i18n="net_l_plan">prévu</span></span><span><i class="up"></i><span data-i18n="net_l_up">lien actif</span></span></div>
+<p class="net-hint" data-i18n="net_scroll">Fais glisser le schéma vers la gauche pour voir tout le réseau.</p>
+</div>
+<div class="net-side">
+<div class="net-info" id="net-info" aria-live="polite"></div>
+<div class="net-btns">
+<button class="k-btn" data-sc="ping" type="button"><i class="fa-solid fa-satellite-dish"></i><span data-i18n="net_b_ping">Ping PC → DC</span></button>
+<button class="k-btn" data-sc="dns" type="button"><i class="fa-solid fa-magnifying-glass"></i><span data-i18n="net_b_dns">Résolution DNS</span></button>
+<button class="k-btn" data-sc="auth" type="button"><i class="fa-solid fa-key"></i><span data-i18n="net_b_auth">Ouverture de session (Kerberos)</span></button>
+<button class="k-btn ghost" id="net-clear" type="button"><i class="fa-solid fa-eraser"></i><span data-i18n="net_b_clear">Effacer la liste</span></button>
+</div>
+</div>
+</div>
+<div class="net-events"><table>
+<thead><tr><th data-i18n="net_th_t">Temps (s)</th><th data-i18n="net_th_from">De</th><th data-i18n="net_th_at">Vers</th><th data-i18n="net_th_type">Type</th></tr></thead>
+<tbody id="net-rows"></tbody></table></div>
+<p class="warn" data-i18n="net_note">Animation pédagogique : elle illustre les échanges du labo, ce n'est pas une capture réelle du trafic.</p>
+<div class="sr-only" id="net-status" role="status" aria-live="polite"></div>
+</div>
+
+<div class="k-grid" style="margin-top:22px">
+<article class="k-card proj reveal"><span class="status" data-i18n="st_wip">projet personnel · en cours</span>
+<h3><i class="fa-solid fa-power-off"></i><span data-i18n="pj2_t">OffTime · utilitaire d'extinction du PC</span></h3><p data-i18n="pj2_d">Application Windows 11 à interface GTK : extinction, redémarrage ou veille programmés, arrêt automatique à la fin d'un téléchargement Steam, moniteur système (CPU, RAM, disque, réseau) et nettoyeur de fichiers temporaires.</p>
+<span class="pill">GTK</span><span class="pill">psutil</span><span class="pill">Windows 11</span></article>
+<article class="k-card proj reveal"><span class="status" data-i18n="st_plan">prévu</span>
+<h3><i class="fa-solid fa-user-shield"></i><span data-i18n="pj3_t">Lab défense / attaque</span></h3><p data-i18n="pj3_d">Superviser mon propre Active Directory (journaux Windows, Sysmon, Wazuh), puis m'entraîner à l'attaquer depuis une VM isolée et vérifier ce que la détection voit. Uniquement dans mon labo fermé et sur des plateformes de CTF.</p>
+<span class="pill">Sysmon</span><span class="pill">Wazuh</span><span class="pill">TryHackMe</span><span class="pill">Root-Me</span><span class="pill">Hack The Box</span></article>
+</div>
+
+<h3 class="more-h reveal" data-i18n="pj_more">Autres travaux de formation</h3>
+<div class="k-grid more">
+<article class="k-card proj reveal"><span class="status" data-i18n="pr_status">documentation à venir</span><h3><i class="fa-solid fa-cubes"></i><span data-i18n="pr1_t">Homelab</span></h3><p data-i18n="pr1_d">Infrastructure multi-VM (Windows Server, Linux, postes clients) : segmentation réseau, VLAN, tests de durcissement, snapshots et sauvegardes.</p></article>
+<article class="k-card proj reveal"><span class="status" data-i18n="pr_status">documentation à venir</span><h3><i class="fa-brands fa-linux"></i><span data-i18n="pr2_t">Services réseau Linux</span></h3><p data-i18n="pr2_d">DNS (BIND9), DHCP, serveur web Apache2, partages NFS/Samba et scripts Bash d'administration courante.</p></article>
+<article class="k-card proj reveal"><span class="status" data-i18n="pr_status">documentation à venir</span><h3><i class="fa-solid fa-stethoscope"></i><span data-i18n="pr4_t">Outil de diagnostic système</span></h3><p data-i18n="pr4_d">Script PowerShell : inventaire matériel, analyse disque, état réseau, gestion de services. Compilé en exécutable autonome.</p></article>
+</div>
+</div>
+</section>
 <section class="block alt" id="skills">
 <div class="container">
-<span class="eyebrow reveal">02 // <span data-i18n="sk_eyebrow">compétences</span></span>
+<span class="eyebrow reveal">04 // <span data-i18n="sk_eyebrow">compétences</span></span>
 <h2 class="reveal"><span data-i18n="sk_h2">Ma boîte à outils</span></h2>
 <p class="sub reveal" data-i18n="sk_sub">Compétences travaillées ou en cours d’acquisition, alignées sur le référentiel TSSR. Clique sur une carte pour explorer les notions associées.</p>
 <div class="k-grid">
@@ -380,56 +591,51 @@ code.cmd { display: inline-block; background: #0d0d0f; border: 1px solid var(--l
 </div>
 </div>
 </section>
-
-<section class="block alt" id="cyber">
+<section class="block" id="cyber">
 <div class="container">
-<span class="eyebrow reveal">03 // <span data-i18n="cy_eyebrow">cyber</span></span>
+<span class="eyebrow reveal">05 // <span data-i18n="cy_eyebrow">cyber</span></span>
 <h2 class="reveal"><span data-i18n="cy_h2">Cap sur la cybersécurité</span></h2>
-<p class="sub reveal" data-i18n="cy_sub">Ma progression : des bases solides vers la spécialisation.</p>
+<p class="sub reveal" data-i18n="cy_sub">Mon cap : bâtir des bases solides en infrastructure, puis me spécialiser vers la sécurité offensive.</p>
 <div class="roadmap">
-<div class="k-card reveal"><span class="n">01 <span class="chip ok" data-i18n="c_done">acquis</span></span>
-<h3 data-i18n="cy1_t">Fondations</h3><p data-i18n="cy1_d">Réseaux, systèmes Windows et Linux.</p></div>
-<div class="k-card reveal"><span class="n">02 <span class="chip ok" data-i18n="c_prac">en pratique</span></span>
-<h3 data-i18n="cy2_t">Défense</h3><p data-i18n="cy2_d">Durcissement, pare-feu, logs, sauvegardes.</p></div>
-<div class="k-card reveal"><span class="n">03 <span class="chip" data-i18n="c_disc">découverte</span></span>
-<h3 data-i18n="cy3_t">Cloud et identité</h3><p data-i18n="cy3_d">Azure, AWS, gestion des accès.</p></div>
-<div class="k-card reveal"><span class="n">04 <span class="chip" data-i18n="c_goal">objectif</span></span>
-<h3 data-i18n="cy4_t">Spécialisation</h3><p data-i18n="cy4_d">Poursuite d'études en cybersécurité.</p></div>
+<div class="k-card reveal"><span class="n">01 <span class="chip ok" data-i18n="c_done">acquis</span></span><h3 data-i18n="cy1_t">Fondations</h3><p data-i18n="cy1_d">Réseaux, systèmes Windows et Linux.</p></div>
+<div class="k-card reveal"><span class="n">02 <span class="chip ok" data-i18n="c_prac">en cours</span></span><h3 data-i18n="cy2_t">Défense</h3><p data-i18n="cy2_d">Durcissement, journaux, supervision, sauvegardes.</p></div>
+<div class="k-card reveal"><span class="n">03 <span class="chip" data-i18n="c_disc">découverte</span></span><h3 data-i18n="cy3_t">Cloud et identité</h3><p data-i18n="cy3_d">Azure, AWS, gestion des accès.</p></div>
+<div class="k-card reveal"><span class="n">04 <span class="chip" data-i18n="c_plan">prévu</span></span><h3 data-i18n="cy_off_t">Offensif en labo</h3><p data-i18n="cy_off_d">Attaque et défense sur mon propre AD, CTF (TryHackMe, Root-Me, Hack The Box).</p></div>
+<div class="k-card reveal"><span class="n">05 <span class="chip" data-i18n="c_goal">objectif</span></span><h3 data-i18n="cy4_t">Spécialisation</h3><p data-i18n="cy4_d">Licence cyber, puis red team ou sécurité des systèmes embarqués.</p></div>
 </div>
 </div>
 </section>
-<section class="block" id="path">
+<section class="block alt" id="path">
 <div class="container">
-<span class="eyebrow reveal">04 // <span data-i18n="pa_eyebrow">parcours</span></span>
-<h2 class="reveal"><span data-i18n="pa_h2">Mon parcours</span></h2>
-<div class="tl" style="margin-top:34px">
-<div class="reveal">
-<span class="d">31/08 – 23/10/2026</span>
-<h3><span data-i18n="pa1_t">Stage en systèmes et réseaux</span></h3>
-<p data-i18n="pa1_d">Support utilisateur et déploiement en environnement professionnel.</p>
+<span class="eyebrow reveal">06 // <span data-i18n="pa_eyebrow">parcours</span></span>
+<h2 class="reveal"><span data-i18n="pa_h2">Formation et parcours</span></h2>
+<article class="k-card formation reveal" style="margin-top:30px">
+<h3><i class="fa-solid fa-graduation-cap"></i><span data-i18n="fo_t">Titre professionnel Technicien supérieur systèmes et réseaux</span></h3>
+<p class="where" data-i18n="fo_where">MODE 83 · Brignoles (Var)</p>
+<div class="badges"><span class="bdg" data-i18n="fo_b1">Niveau 5 (Bac+2)</span><span class="bdg hot" data-i18n="fo_b2">EN COURS</span><span class="bdg">16/03 – 08/12/2026</span><span class="bdg">RNCP37682</span></div>
+<p data-i18n="fo_d">Réseaux IP, Active Directory, Linux, virtualisation, sécurité, support et dépannage. Examen final en décembre 2026.</p>
+<h4 data-i18n="fo_cert_h">Entraînement et certifications</h4>
+<p data-i18n="fo_cert_d">Je compte m'entraîner sur TryHackMe, Root-Me et Hack The Box (profils publics à venir) et passer des certifications professionnelles dès que mon budget le permet.</p>
+<span class="pill">TryHackMe</span><span class="pill">Root-Me</span><span class="pill">Hack The Box</span>
+</article>
+<div class="tl" style="margin-top:40px">
+<div class="reveal future"><span class="d">2027 · <span data-i18n="st_plan">prévu</span></span><h3><span data-i18n="pa4_t">Poursuite d'études</span></h3><p data-i18n="pa4_d">Licence ou bachelor informatique / cybersécurité, de préférence en alternance (candidatures janvier – avril).</p></div>
+<div class="reveal"><span class="d">03 – 12 / 2026</span><h3>TSSR — MODE 83, Brignoles</h3><p data-i18n="pa2_d">Réseaux IP, Active Directory, Linux, virtualisation, sécurité, support et dépannage.</p></div>
+<div class="reveal"><span class="d">2023 – 2025</span><h3><span data-i18n="pa3_t">Expériences polyvalentes</span></h3><p data-i18n="pa3_d">Restauration, viticulture et cave : relation client, écoute et esprit d'équipe.</p></div>
 </div>
-<div class="reveal">
-<span class="d">03 – 12 / 2026</span>
-<h3>TSSR — MODE 83, Brignoles</h3>
-<p data-i18n="pa2_d">Réseaux IP, Active Directory, Linux, virtualisation, sécurité, support et dépannage.</p>
-</div>
-<div class="reveal">
-<span class="d">2023 – 2025</span>
-<h3><span data-i18n="pa3_t">Expériences polyvalentes</span></h3>
-<p data-i18n="pa3_d">Restauration, viticulture et cave : sens du service, écoute et esprit d'équipe.</p>
-</div>
-</div>
+<div class="note reveal" style="margin-top:36px"><i class="fa-solid fa-flag"></i><div><strong data-i18n="pa_note_t">Première expérience en entreprise : recherchée</strong><br/><span data-i18n="pa_note_d">Je la cherche activement. En attendant, je la remplace par du concret : labos documentés, scripts et entraînement en ligne.</span></div></div>
 </div>
 </section>
-<section class="block alt" id="contact" style="border-bottom:0">
+<section class="block" id="contact" style="border-bottom:0">
 <div class="container text-center">
-<span class="eyebrow reveal">05 // <span data-i18n="co_eyebrow">contact</span></span>
+<span class="eyebrow reveal">07 // <span data-i18n="co_eyebrow">contact</span></span>
 <h2 class="reveal"><span data-i18n="co_h2">Travaillons ensemble</span></h2>
-<p class="k-lead mx-auto reveal" data-i18n="co_p">Ouvert aux opportunités de stage, d'alternance et d'échanges techniques.</p>
+<p class="k-lead mx-auto reveal" data-i18n="co_p">Ouvert aux propositions d'emploi (admin systèmes/réseaux, support), de stage et d'alternance, ainsi qu'aux échanges techniques.</p>
 <div class="contact reveal">
 <a class="k-btn fill" href="mailto:gabrielmunos337@gmail.com"><i class="fa-solid fa-envelope"></i> gabrielmunos337@gmail.com</a>
-<!-- <a class="k-btn" href="https://github.com/TON-PSEUDO"><i class="fa-brands fa-github"></i> GitHub</a> -->
+<a class="k-btn" href="https://github.com/Kami477156" rel="noopener noreferrer" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
 <!-- <a class="k-btn" href="https://www.linkedin.com/in/TON-PROFIL"><i class="fa-brands fa-linkedin"></i> LinkedIn</a> -->
+<!-- <a class="k-btn" href="cv-gabriel-munos.pdf" download><i class="fa-solid fa-file-pdf"></i> CV (PDF)</a> -->
 </div>
 <p data-i18n="co_loc" style="color: var(--muted)">Var, France</p>
 </div>
@@ -678,7 +884,7 @@ code.cmd { display: inline-block; background: #0d0d0f; border: 1px solid var(--l
 <div class="container" style="padding:2rem 0"><a class="k-btn" href="#skills">← Retour aux compétences</a></div></div>
 </main>
 <footer>
-<div class="container">© 2026 Gabriel
+<div class="container">© <span id="yr">2026</span> Gabriel
       <small><span data-i18n="foot_note">portfolio en construction · mis à jour en octobre 2026</span></small>
 </div>
 </footer>
@@ -698,40 +904,40 @@ window.I18N = {
   "aria_top": "Haut de page",
   "aria_lang": "Langue",
   "aria_nav": "Navigation principale",
-  "foot_note": "portfolio en construction · mis à jour en octobre 2026",
+  "foot_note": "portfolio en évolution · mis à jour en novembre 2026",
   "go": "Voir le détail →",
-  "title_home": "Portfolio TSSR | Étudiant Systèmes et Réseaux – Cybersécurité · MODE 83 Brignoles",
-  "badge": "TSSR · ouvert aux opportunités cyber",
-  "job": "Technicien Supérieur Systèmes &amp; Réseaux",
-  "lead": "Étudiant en TSSR (Bac+2) à Brignoles, tourné vers la <strong>cybersécurité</strong>. J'apprends en construisant : labs, machines virtuelles, scripts et durcissement de systèmes.",
-  "btn_projects": "Voir mes projets",
+  "title_home": "Gabriel Munos | TSSR · Admin systèmes & réseaux · Cybersécurité · Brignoles (83)",
+  "badge": "Recherche : admin systèmes &amp; réseaux · support",
+  "job": "Technicien Supérieur Systèmes &amp; Réseaux · en formation",
+  "lead": "Je monte et je documente des labos d'infrastructure (Active Directory, Linux, réseau) pour devenir administrateur systèmes et réseaux, avec la <strong>cybersécurité</strong> comme cap à moyen terme.",
+  "btn_projects": "Voir mon labo",
   "btn_skills": "Explorer mes compétences",
   "btn_contact": "Me contacter",
   "term_aria": "Terminal interactif : tape help",
   "t_welcome": "Bienvenue ! Terminal interactif : tape « help » pour voir les commandes.",
-  "t_help": "Commandes :\n  whoami          qui suis-je\n  profil          mon profil\n  skills          mes compétences\n  projets         mes projets\n  objectif        mon objectif\n  contact         me contacter\n  open <nom>      ouvrir une page : reseau, securite,\n                  windows, linux, virtualisation, support\n  lang <fr|en|zh> changer de langue\n  clear           effacer l'écran",
-  "t_profile": "Gabriel · étudiant TSSR (Bac+2) · MODE 83, Brignoles (Var)\nFormation : mars – décembre 2026\nStage : 31/08 – 23/10/2026",
+  "t_help": "Commandes :\n  whoami          qui suis-je\n  profil          mon profil\n  objectif        ce que je recherche\n  projets         mes projets\n  skills          mes compétences\n  lab             aller à la topologie du labo\n  ping <hôte>     tester le labo : ping dc01 | ping client\n  contact         me contacter\n  open <nom>      ouvrir une page : reseau, securite,\n                  windows, linux, virtualisation, support\n  lang <fr|en|zh|tw> changer de langue\n  clear           effacer l'écran",
+  "t_profile": "Gabriel · TSSR en formation · MODE 83, Brignoles (Var)\nFormation : mars – décembre 2026 (examen en décembre)\nRecherche : admin systèmes/réseaux ou support",
   "t_skills": "Réseau · Sécurité · Windows · Linux · Virtualisation · Support · Scripts · Sauvegardes\nAstuce : « open reseau » ouvre la page détaillée.",
-  "t_projects": "1. Homelab multi-VM\n2. Services réseau Linux (BIND9, DHCP, Apache2, NFS/Samba)\n3. Lab Active Directory (Windows Server 2022)\n4. Outil de diagnostic système (PowerShell)",
-  "t_goal": "TSSR → poursuite d'études en cybersécurité",
+  "t_projects": "1. Lab Active Directory · Militech (documentation en cours)\n2. OffTime · utilitaire d'extinction du PC (en cours)\n3. Lab défense / attaque (prévu)\n+ travaux de formation : homelab multi-VM, services réseau Linux, outil de diagnostic PowerShell",
+  "t_goal": "Premier poste : admin systèmes/réseaux ou support\nPuis : technicien cybersécurité, red team à terme\nÉtudes : licence info/cyber, candidatures janv.–avr. 2027",
   "t_contact": "gabrielmunos337@gmail.com",
   "t_unknown": "commande introuvable : {c} (tape « help »)",
   "t_lang_ok": "Langue : français.",
-  "t_lang_usage": "Usage : lang fr | lang en | lang zh",
+  "t_lang_usage": "Usage : lang fr | lang en | lang zh | lang tw",
   "t_opening": "Ouverture…",
   "t_open_usage": "Usage : open reseau | securite | windows | linux | virtualisation | support",
   "t_sudo": "gabriel n'est pas dans le fichier sudoers. Cet incident sera signalé.",
-  "st2": "de stage en entreprise",
+  "st2": "labo Windows Server 2022 + client Windows 11 joint au domaine",
   "st3": "domaines techniques travaillés",
-  "st4": "portfolio trilingue",
+  "st4": "portfolio trilingue · chinois : débutant",
   "ab_eyebrow": "à propos",
   "ab_h2": "Qui suis-je ?",
-  "ab_p1": "Je suis en formation <strong>Technicien Supérieur Systèmes et Réseaux</strong> (MODE 83, Brignoles, mars – décembre 2026). Curieux et motivé, je veux apprendre au contact de professionnels, être utile sur des missions concrètes de <strong>support et d'infrastructure</strong>, et progresser vers une <strong>spécialisation en cybersécurité</strong>.",
-  "ab_p2": "Mon parcours varié, de la restauration à la viticulture, m'a donné le sens du service, l'écoute et l'esprit d'équipe : des qualités qui comptent autant que la technique quand on fait du support.",
-  "f_dipl": "TSSR (Bac+2), mars – déc. 2026",
+  "ab_p1": "Je suis en formation de <strong>Technicien Supérieur Systèmes et Réseaux</strong> (MODE 83, Brignoles, mars – décembre 2026). Mon objectif : décrocher un premier poste en <strong>administration systèmes et réseaux</strong> ou en <strong>support</strong> pour apprendre dans un environnement réel, puis évoluer vers la <strong>cybersécurité</strong>.",
+  "ab_p2": "Avant l'informatique, j'ai travaillé en restauration, en viticulture et en cave : le contact client, l'écoute et le travail d'équipe m'ont appris à rester calme sous pression et à expliquer simplement, ce qui sert directement en support.",
+  "f_dipl": "Titre pro TSSR (niveau 5), mars – déc. 2026",
   "f_loc": "Var (83), PACA",
-  "f_goal": "Objectif : cybersécurité",
-  "f_lang": "Portfolio en français, anglais et chinois",
+  "f_goal": "Objectif : admin systèmes/réseaux, puis cybersécurité",
+  "f_lang": "FR · EN · 中文 (chinois : débutant, apprentissage prévu sur place)",
   "v1_t": "Envie d'apprendre",
   "v1_p": "Je progresse par la pratique et je cherche à comprendre le « pourquoi » derrière chaque configuration.",
   "v2_t": "Rigueur et autonomie",
@@ -760,42 +966,38 @@ window.I18N = {
   "sk_method": "Méthode professionnelle",
   "sk_method_d": "Communication adaptée, résolution structurée des problèmes, traçabilité des interventions et apprentissage continu.",
   "pr_eyebrow": "projets",
-  "pr_h2": "Labs et réalisations",
-  "pr_note": "Deux travaux pratiques sont documentés dans les fiches ci-dessous.",
-  "pr_status": "étude de cas à venir",
+  "pr_h2": "Labos et projets",
+  "pr_note": "Je construis mes labos moi-même, je les documente et je les fais évoluer. Chaque carte indique son état réel.",
+  "pr_status": "documentation à venir",
   "pr1_t": "Homelab",
   "pr1_d": "Infrastructure multi-VM (Windows Server, Linux, postes clients) : segmentation réseau, VLAN, tests de durcissement, snapshots et sauvegardes.",
   "pr2_t": "Services réseau Linux",
   "pr2_d": "DNS (BIND9), DHCP, serveur web Apache2, partages NFS/Samba et scripts Bash d'administration courante.",
-  "pr3_t": "Lab Active Directory",
-  "pr3_d": "Domaine AD sous Windows Server 2022 : contrôleur de domaine, DNS, DHCP, postes joints, GPO et gestion des comptes via PowerShell.",
   "pr4_t": "Outil de diagnostic système",
   "pr4_d": "Script PowerShell : inventaire matériel, analyse disque, état réseau, gestion de services. Compilé en exécutable autonome.",
   "cy_eyebrow": "cyber",
   "cy_h2": "Cap sur la cybersécurité",
-  "cy_sub": "Ma progression : des bases solides vers la spécialisation.",
+  "cy_sub": "Mon cap : bâtir des bases solides en infrastructure, puis me spécialiser vers la sécurité offensive.",
   "c_done": "acquis",
-  "c_prac": "en pratique",
+  "c_prac": "en cours",
   "c_disc": "découverte",
   "c_goal": "objectif",
   "cy1_t": "Fondations",
   "cy1_d": "Réseaux, systèmes Windows et Linux.",
   "cy2_t": "Défense",
-  "cy2_d": "Durcissement, pare-feu, logs, sauvegardes.",
+  "cy2_d": "Durcissement, journaux, supervision, sauvegardes.",
   "cy3_t": "Cloud et identité",
   "cy3_d": "Azure, AWS, gestion des accès.",
   "cy4_t": "Spécialisation",
-  "cy4_d": "Poursuite d'études en cybersécurité.",
+  "cy4_d": "Licence cyber, puis red team ou sécurité des systèmes embarqués.",
   "pa_eyebrow": "parcours",
-  "pa_h2": "Mon parcours",
-  "pa1_t": "Stage en systèmes et réseaux",
-  "pa1_d": "Support utilisateur et déploiement en environnement professionnel.",
+  "pa_h2": "Formation et parcours",
   "pa2_d": "Réseaux IP, Active Directory, Linux, virtualisation, sécurité, support et dépannage.",
   "pa3_t": "Expériences polyvalentes",
-  "pa3_d": "Restauration, viticulture et cave : sens du service, écoute et esprit d'équipe.",
+  "pa3_d": "Restauration, viticulture et cave : relation client, écoute et esprit d'équipe.",
   "co_eyebrow": "contact",
   "co_h2": "Travaillons ensemble",
-  "co_p": "Ouvert aux opportunités de stage, d'alternance et d'échanges techniques.",
+  "co_p": "Ouvert aux propositions d'emploi (admin systèmes/réseaux, support), de stage et d'alternance, ainsi qu'aux échanges techniques.",
   "co_loc": "Var, France",
   "pg_eyebrow": "compétence",
   "pg_notions": "Notions clés",
@@ -927,7 +1129,111 @@ window.I18N = {
   "n_support_3_t": "Reporting",
   "n_support_3": "Tracer ce qui a été fait pour que l'équipe puisse reprendre la suite et apprendre des incidents.",
   "n_support_4_t": "Ticketing · Cloud",
-  "n_support_4": "En découverte : outils de suivi des demandes et environnements Azure et AWS, que je souhaite approfondir."
+  "n_support_4": "En découverte : outils de suivi des demandes et environnements Azure et AWS, que je souhaite approfondir.",
+  "st1_v": "Niveau 5",
+  "st1": "titre pro TSSR · examen en décembre 2026",
+  "st2_v": "AD DS",
+  "f_study": "Études visées : licence informatique / cybersécurité (2027)",
+  "ob_eyebrow": "objectif",
+  "ob_h2": "Ce que je recherche",
+  "ob_sub": "Deux projets, un même cap : l'infrastructure d'abord, la sécurité ensuite.",
+  "ob1_t": "Premier emploi",
+  "ob1_d": "Poste d'administrateur systèmes et réseaux, de technicien support ou d'helpdesk, pour apprendre en environnement réel : tickets, déploiement des postes, Active Directory, supervision.",
+  "ob1_a": "Disponible dès la fin de la formation (décembre 2026) · Var / PACA",
+  "ob1_c1": "Admin systèmes &amp; réseaux",
+  "ob1_c2": "Support / helpdesk",
+  "ob2_t": "Poursuite d'études",
+  "ob2_d": "Licence ou bachelor en informatique / cybersécurité, de préférence en alternance. Candidatures prévues entre janvier et avril 2027.",
+  "ob2_a": "Candidatures : janvier – avril 2027",
+  "ob2_c1": "Licence informatique",
+  "ob2_c2": "Cybersécurité",
+  "ob2_c3": "Alternance",
+  "ob3_t": "Cap à long terme",
+  "ob3_d": "Après 6 à 12 mois d'expérience en infrastructure : technicien cybersécurité, puis red team. Plus tard : sécurité des systèmes embarqués ou poste à l'international en Asie (Taïwan, Hong Kong).",
+  "ob3_a": "Chinois : débutant · apprentissage prévu sur place",
+  "ob3_c1": "Red team",
+  "ob3_c2": "Systèmes embarqués",
+  "ob3_c3": "Asie · Taïwan / Hong Kong",
+  "st_live": "documentation en cours",
+  "st_wip": "projet personnel · en cours",
+  "st_plan": "prévu",
+  "lab_t": "Lab Active Directory · Militech",
+  "lab_d": "Domaine militech.local sous Windows Server 2022 (VirtualBox) : un contrôleur de domaine et un client Windows 11 joint au domaine, sur un réseau interne isolé.",
+  "lab_h1": "Ce que j'ai mis en place",
+  "lab_1": "Contrôleur de domaine MILITECH-DC01 (AD DS) · 192.168.91.10",
+  "lab_2": "OU racine, OU par service et groupes globaux GG_&lt;Service&gt;",
+  "lab_3": "Script PowerShell de création des OU, groupes et utilisateurs",
+  "lab_4": "Client PC-CLIENT-1 (Windows 11) joint au domaine · 192.168.91.30",
+  "lab_5": "Connectivité validée (ping après ouverture de la règle de pare-feu ICMPv4)",
+  "lab_h2": "Prochaines étapes",
+  "lab_n1": "GPO, partages et droits d'accès",
+  "lab_n2": "Segmentation réseau, pare-feu et DMZ",
+  "lab_n3": "Supervision des journaux (Sysmon, Wazuh)",
+  "lab_doc": "Document pas à pas (PDF) : bientôt en ligne.",
+  "net_h": "Topologie du labo",
+  "net_sub": "Façon Packet Tracer : clique sur un équipement, ou lance un échange pour voir circuler les paquets. Trait plein = en place, pointillés = prévu.",
+  "net_region": "Schéma réseau du labo (défilement horizontal possible)",
+  "net_b_ping": "Ping PC → DC",
+  "net_b_dns": "Résolution DNS",
+  "net_b_auth": "Ouverture de session (Kerberos)",
+  "net_b_clear": "Effacer la liste",
+  "net_th_t": "Temps (s)",
+  "net_th_from": "De",
+  "net_th_at": "Vers",
+  "net_th_type": "Type",
+  "net_empty": "Aucun paquet pour le moment : lance un échange ci-dessus.",
+  "net_l_ok": "en place",
+  "net_l_plan": "prévu",
+  "net_l_up": "lien actif",
+  "net_note": "Animation pédagogique : elle illustre les échanges du labo, ce n'est pas une capture réelle du trafic.",
+  "net_done": "Succès : {s}",
+  "net_info_ip": "Adresse / réseau",
+  "net_info_state": "État",
+  "net_pick": "Clique sur un équipement pour afficher ses détails.",
+  "dev_dc": "Contrôleur de domaine · AD DS, DNS",
+  "dev_pc": "Poste client Windows 11, joint au domaine",
+  "dev_sw": "Réseau interne VirtualBox (commutateur virtuel)",
+  "dev_fw": "Pare-feu entre les zones (à mettre en place)",
+  "dev_dmz": "Serveur exposé en zone DMZ",
+  "dev_atk": "VM d'attaque isolée pour m'entraîner",
+  "dev_siem": "Supervision des journaux (Sysmon, Wazuh)",
+  "dev_sw_name": "Réseau interne",
+  "dev_fw_name": "Pare-feu",
+  "dev_dmz_name": "Serveur DMZ",
+  "dev_atk_name": "VM d'attaque",
+  "dev_siem_name": "Supervision",
+  "ev_icmp_q": "ICMP · requête d'écho (ping)",
+  "ev_icmp_r": "ICMP · réponse d'écho",
+  "ev_dns_q": "DNS · requête militech-dc01.militech.local",
+  "ev_dns_r": "DNS · réponse 192.168.91.10",
+  "ev_krb_q": "Kerberos · AS-REQ (demande de TGT)",
+  "ev_krb_r": "Kerberos · AS-REP (TGT délivré)",
+  "pj2_t": "OffTime · utilitaire d'extinction du PC",
+  "pj2_d": "Application Windows 11 à interface GTK : extinction, redémarrage ou veille programmés, arrêt automatique à la fin d'un téléchargement Steam, moniteur système (CPU, RAM, disque, réseau) et nettoyeur de fichiers temporaires.",
+  "pj3_t": "Lab défense / attaque",
+  "pj3_d": "Superviser mon propre Active Directory (journaux Windows, Sysmon, Wazuh), puis m'entraîner à l'attaquer depuis une VM isolée et vérifier ce que la détection voit. Uniquement dans mon labo fermé et sur des plateformes de CTF.",
+  "pj_more": "Autres travaux de formation",
+  "c_plan": "prévu",
+  "cy_off_t": "Offensif en labo",
+  "cy_off_d": "Attaque et défense sur mon propre AD, CTF (TryHackMe, Root-Me, Hack The Box).",
+  "fo_t": "Titre professionnel Technicien supérieur systèmes et réseaux",
+  "fo_where": "MODE 83 · Brignoles (Var)",
+  "fo_b1": "Niveau 5 (Bac+2)",
+  "fo_b2": "EN COURS",
+  "fo_d": "Réseaux IP, Active Directory, Linux, virtualisation, sécurité, support et dépannage. Examen final en décembre 2026.",
+  "fo_cert_h": "Entraînement et certifications",
+  "fo_cert_d": "Je compte m'entraîner sur TryHackMe, Root-Me et Hack The Box (profils publics à venir) et passer des certifications professionnelles dès que mon budget le permet.",
+  "pa4_t": "Poursuite d'études",
+  "pa4_d": "Licence ou bachelor informatique / cybersécurité, de préférence en alternance (candidatures janvier – avril).",
+  "pa_note_t": "Première expérience en entreprise : recherchée",
+  "pa_note_d": "Je la cherche activement. En attendant, je la remplace par du concret : labos documentés, scripts et entraînement en ligne.",
+  "t_ping_usage": "Usage : ping dc01 | ping client",
+  "t_ping_head": "Envoi d'une requête ICMP vers {h} [{ip}] avec 32 octets de données (simulation) :",
+  "t_ping_line": "Réponse de {ip} : octets=32 temps<1ms TTL=128",
+  "t_ping_stats": "Statistiques : 4 envoyés, 4 reçus, 0 perdu (simulation).",
+  "t_lab": "Défilement vers la topologie du labo…",
+  "net_scroll": "Fais glisser le schéma vers la gauche pour voir tout le réseau.",
+  "net_aria": "Schéma du labo : un contrôleur de domaine et un poste client reliés par un réseau interne. Pare-feu, DMZ, VM d'attaque et supervision sont prévus."
  },
  "en": {
   "skip": "Skip to main content",
@@ -941,39 +1247,39 @@ window.I18N = {
   "aria_top": "Back to top",
   "aria_lang": "Language",
   "aria_nav": "Main navigation",
-  "foot_note": "portfolio in progress · updated October 2026",
+  "foot_note": "portfolio in progress · updated November 2026",
   "go": "See details →",
-  "title_home": "TSSR Portfolio | Systems and Networks Student – Cybersecurity · MODE 83 Brignoles",
-  "badge": "TSSR · open to cybersecurity opportunities",
-  "job": "Systems &amp; Networks Technician (TSSR)",
-  "lead": "TSSR student (French Bac+2 in systems and networks) in Brignoles, focused on <strong>cybersecurity</strong>. I learn by building: labs, virtual machines, scripts and system hardening.",
-  "btn_projects": "See my projects",
+  "title_home": "Gabriel Munos | TSSR · Systems & Network Admin · Cybersecurity · Brignoles (83)",
+  "badge": "Seeking: systems &amp; network admin · support",
+  "job": "Systems &amp; Network Technician (TSSR) · in training",
+  "lead": "I build and document infrastructure labs (Active Directory, Linux, networking) to become a systems and network administrator, with <strong>cybersecurity</strong> as my mid-term goal.",
+  "btn_projects": "See my lab",
   "btn_contact": "Contact me",
   "term_aria": "Interactive terminal: type help",
   "t_welcome": "Welcome! Interactive terminal: type \"help\" to list the commands.",
-  "t_help": "Commands:\n  whoami          who am I\n  profile         my profile\n  skills          my skills\n  projects        my projects\n  goal            my goal\n  contact         get in touch\n  open <name>     open a page: reseau, securite,\n                  windows, linux, virtualisation, support\n  lang <fr|en|zh> switch language\n  clear           clear the screen",
-  "t_profile": "Gabriel · TSSR student (Bac+2) · MODE 83, Brignoles (Var)\nTraining: March – December 2026\nInternship: 31/08 – 23/10/2026",
+  "t_help": "Commands:\n  whoami          who am I\n  profile         my profile\n  goal            what I'm looking for\n  projects        my projects\n  skills          my skills\n  lab             jump to the lab topology\n  ping <host>     test the lab: ping dc01 | ping client\n  contact         get in touch\n  open <name>     open a page: reseau, securite,\n                  windows, linux, virtualisation, support\n  lang <fr|en|zh|tw> switch language\n  clear           clear the screen",
+  "t_profile": "Gabriel · TSSR trainee · MODE 83, Brignoles (Var)\nTraining: March – December 2026 (exam in December)\nLooking for: systems/network admin or support",
   "t_skills": "Networking · Security · Windows · Linux · Virtualisation · Support · Scripting · Backups\nTip: \"open reseau\" opens the detail page.",
-  "t_projects": "1. Multi-VM homelab\n2. Linux network services (BIND9, DHCP, Apache2, NFS/Samba)\n3. Active Directory lab (Windows Server 2022)\n4. System diagnostic tool (PowerShell)",
-  "t_goal": "TSSR → further studies in cybersecurity",
+  "t_projects": "1. Active Directory lab · Militech (documentation in progress)\n2. OffTime · PC shutdown utility (in progress)\n3. Defence / attack lab (planned)\n+ training work: multi-VM homelab, Linux network services, PowerShell diagnostic tool",
+  "t_goal": "First job: systems/network admin or support\nThen: cybersecurity technician, red team in the long run\nStudies: IT/cyber bachelor, applications Jan–Apr 2027",
   "t_contact": "gabrielmunos337@gmail.com",
   "t_unknown": "command not found: {c} (type \"help\")",
   "t_lang_ok": "Language: English.",
-  "t_lang_usage": "Usage: lang fr | lang en | lang zh",
+  "t_lang_usage": "Usage: lang fr | lang en | lang zh | lang tw",
   "t_opening": "Opening…",
   "t_open_usage": "Usage: open reseau | securite | windows | linux | virtualisation | support",
   "t_sudo": "gabriel is not in the sudoers file. This incident will be reported.",
-  "st2": "work placement",
+  "st2": "Windows Server 2022 lab + Windows 11 client joined to the domain",
   "st3": "technical areas explored",
-  "st4": "trilingual portfolio",
+  "st4": "trilingual portfolio · Chinese: beginner",
   "ab_eyebrow": "about",
   "ab_h2": "Who am I?",
-  "ab_p1": "I am training as a <strong>Systems and Networks Technician</strong> (TSSR, MODE 83, Brignoles, March – December 2026). Curious and motivated, I want to learn alongside professionals, be useful on concrete <strong>support and infrastructure</strong> missions, and grow towards a <strong>cybersecurity specialisation</strong>.",
-  "ab_p2": "My varied background, from catering to winegrowing, gave me a sense of service, listening skills and team spirit: qualities that matter as much as technique in support work.",
-  "f_dipl": "TSSR (Bac+2), March – Dec. 2026",
-  "f_loc": "Var (83), Provence, France",
-  "f_goal": "Goal: cybersecurity",
-  "f_lang": "Portfolio in French, English and Chinese",
+  "ab_p1": "I'm training as a <strong>Technicien Supérieur Systèmes et Réseaux</strong> (systems and network technician, MODE 83, Brignoles, March – December 2026). My goal is a first job in <strong>systems and network administration</strong> or <strong>IT support</strong> to learn in a real environment, then to move towards <strong>cybersecurity</strong>.",
+  "ab_p2": "Before IT, I worked in catering, viticulture and a wine cellar: dealing with customers, listening and teamwork taught me to stay calm under pressure and to explain things simply, which helps directly in support.",
+  "f_dipl": "TSSR professional title (level 5), Mar – Dec 2026",
+  "f_loc": "Var (83), PACA region, France",
+  "f_goal": "Goal: systems/network admin, then cybersecurity",
+  "f_lang": "FR · EN · 中文 (Chinese: beginner, plan to learn on site)",
   "v1_t": "Eager to learn",
   "v1_p": "I progress through practice and try to understand the \"why\" behind every configuration.",
   "v2_t": "Rigour and autonomy",
@@ -1003,41 +1309,37 @@ window.I18N = {
   "sk_method_d": "Audience-appropriate communication, structured problem-solving, traceable interventions and continuous learning.",
   "pr_eyebrow": "projects",
   "pr_h2": "Labs and projects",
-  "pr_note": "This portfolio is being expanded: diagrams, screenshots and GitHub repositories for each project will be added soon.",
-  "pr_status": "case study coming soon",
+  "pr_note": "I build my labs myself, document them and keep them evolving. Each card shows its real status.",
+  "pr_status": "documentation coming",
   "pr1_t": "Homelab",
   "pr1_d": "Multi-VM infrastructure (Windows Server, Linux, client machines): network segmentation, VLANs, hardening tests, snapshots and backups.",
   "pr2_t": "Linux network services",
   "pr2_d": "DNS (BIND9), DHCP, Apache2 web server, NFS/Samba shares and Bash scripts for routine administration.",
-  "pr3_t": "Active Directory lab",
-  "pr3_d": "AD domain on Windows Server 2022: domain controller, DNS, DHCP, joined clients, GPOs and account management with PowerShell.",
   "pr4_t": "System diagnostic tool",
   "pr4_d": "PowerShell script: hardware inventory, disk analysis, network status, service management. Compiled into a standalone executable.",
   "cy_eyebrow": "cyber",
   "cy_h2": "Heading for cybersecurity",
-  "cy_sub": "My progression: from solid foundations to specialisation.",
+  "cy_sub": "My path: build solid infrastructure foundations, then specialise towards offensive security.",
   "c_done": "acquired",
-  "c_prac": "in practice",
+  "c_prac": "in progress",
   "c_disc": "discovering",
   "c_goal": "goal",
   "cy1_t": "Foundations",
   "cy1_d": "Networks, Windows and Linux systems.",
   "cy2_t": "Defence",
-  "cy2_d": "Hardening, firewalls, logs, backups.",
+  "cy2_d": "Hardening, logs, monitoring, backups.",
   "cy3_t": "Cloud and identity",
   "cy3_d": "Azure, AWS, access management.",
   "cy4_t": "Specialisation",
-  "cy4_d": "Further studies in cybersecurity.",
-  "pa_eyebrow": "path",
-  "pa_h2": "My journey",
-  "pa1_t": "Systems and networks internship",
-  "pa1_d": "User support and deployment in a professional environment.",
+  "cy4_d": "Cybersecurity degree, then red team or embedded-systems security.",
+  "pa_eyebrow": "background",
+  "pa_h2": "Training and background",
   "pa2_d": "IP networking, Active Directory, Linux, virtualisation, security, support and troubleshooting.",
   "pa3_t": "Varied work experience",
-  "pa3_d": "Catering, winegrowing and cellar work: service mindset, listening and team spirit.",
+  "pa3_d": "Catering, viticulture and wine cellar: customer relations, listening and teamwork.",
   "co_eyebrow": "contact",
   "co_h2": "Let's work together",
-  "co_p": "Open to internships, work-study (alternance) opportunities and technical discussions.",
+  "co_p": "Open to job offers (systems/network admin, support), internships, work-study programmes and technical conversations.",
   "co_loc": "Var, France",
   "pg_eyebrow": "skill",
   "pg_notions": "Key concepts",
@@ -1169,53 +1471,157 @@ window.I18N = {
   "n_support_3_t": "Reporting",
   "n_support_3": "Recording what was done so the team can pick up from there and learn from incidents.",
   "n_support_4_t": "Ticketing · Cloud",
-  "n_support_4": "Exploring: request-tracking tools and Azure and AWS environments, which I want to deepen."
+  "n_support_4": "Exploring: request-tracking tools and Azure and AWS environments, which I want to deepen.",
+  "st1_v": "Level 5",
+  "st1": "TSSR professional title · exam in December 2026",
+  "st2_v": "AD DS",
+  "f_study": "Planned studies: IT / cybersecurity bachelor (2027)",
+  "ob_eyebrow": "goal",
+  "ob_h2": "What I'm looking for",
+  "ob_sub": "Two plans, one direction: infrastructure first, security next.",
+  "ob1_t": "First job",
+  "ob1_d": "Systems and network administrator, support technician or helpdesk role, to learn in a real environment: tickets, workstation deployment, Active Directory, monitoring.",
+  "ob1_a": "Available once the course ends (December 2026) · Var / PACA region",
+  "ob1_c1": "Systems &amp; network admin",
+  "ob1_c2": "Support / helpdesk",
+  "ob2_t": "Further studies",
+  "ob2_d": "Bachelor degree in IT / cybersecurity, preferably as a work-study programme. Applications planned between January and April 2027.",
+  "ob2_a": "Applications: January – April 2027",
+  "ob2_c1": "IT bachelor",
+  "ob2_c2": "Cybersecurity",
+  "ob2_c3": "Work-study",
+  "ob3_t": "Long-term direction",
+  "ob3_d": "After 6 to 12 months of infrastructure experience: cybersecurity technician, then red team. Later: embedded-systems security or an international role in Asia (Taiwan, Hong Kong).",
+  "ob3_a": "Chinese: beginner · plan to learn on site",
+  "ob3_c1": "Red team",
+  "ob3_c2": "Embedded systems",
+  "ob3_c3": "Asia · Taiwan / Hong Kong",
+  "st_live": "documentation in progress",
+  "st_wip": "personal project · in progress",
+  "st_plan": "planned",
+  "lab_t": "Active Directory lab · Militech",
+  "lab_d": "militech.local domain on Windows Server 2022 (VirtualBox): one domain controller and a Windows 11 client joined to the domain, on an isolated internal network.",
+  "lab_h1": "What I have set up",
+  "lab_1": "Domain controller MILITECH-DC01 (AD DS) · 192.168.91.10",
+  "lab_2": "Root OU, one OU per department and global groups GG_&lt;Service&gt;",
+  "lab_3": "PowerShell script creating the OUs, groups and users",
+  "lab_4": "Client PC-CLIENT-1 (Windows 11) joined to the domain · 192.168.91.30",
+  "lab_5": "Connectivity validated (ping after enabling the ICMPv4 firewall rule)",
+  "lab_h2": "Next steps",
+  "lab_n1": "GPOs, shares and access rights",
+  "lab_n2": "Network segmentation, firewall and DMZ",
+  "lab_n3": "Log monitoring (Sysmon, Wazuh)",
+  "lab_doc": "Step-by-step document (PDF): coming online soon.",
+  "net_h": "Lab topology",
+  "net_sub": "Packet Tracer style: click a device, or start an exchange to watch the packets travel. Solid line = in place, dashed = planned.",
+  "net_region": "Lab network diagram (scrolls horizontally)",
+  "net_b_ping": "Ping PC → DC",
+  "net_b_dns": "DNS resolution",
+  "net_b_auth": "Domain logon (Kerberos)",
+  "net_b_clear": "Clear list",
+  "net_th_t": "Time (s)",
+  "net_th_from": "From",
+  "net_th_at": "To",
+  "net_th_type": "Type",
+  "net_empty": "No packet yet: start an exchange above.",
+  "net_l_ok": "in place",
+  "net_l_plan": "planned",
+  "net_l_up": "link up",
+  "net_note": "Teaching animation: it illustrates the lab exchanges, it is not a real traffic capture.",
+  "net_done": "Success: {s}",
+  "net_info_ip": "Address / network",
+  "net_info_state": "Status",
+  "net_pick": "Click a device to see its details.",
+  "dev_dc": "Domain controller · AD DS, DNS",
+  "dev_pc": "Windows 11 client, joined to the domain",
+  "dev_sw": "VirtualBox internal network (virtual switch)",
+  "dev_fw": "Firewall between zones (to be built)",
+  "dev_dmz": "Server exposed in the DMZ",
+  "dev_atk": "Isolated attack VM for practice",
+  "dev_siem": "Log monitoring (Sysmon, Wazuh)",
+  "dev_sw_name": "Internal network",
+  "dev_fw_name": "Firewall",
+  "dev_dmz_name": "DMZ server",
+  "dev_atk_name": "Attack VM",
+  "dev_siem_name": "Monitoring",
+  "ev_icmp_q": "ICMP · echo request (ping)",
+  "ev_icmp_r": "ICMP · echo reply",
+  "ev_dns_q": "DNS · query militech-dc01.militech.local",
+  "ev_dns_r": "DNS · answer 192.168.91.10",
+  "ev_krb_q": "Kerberos · AS-REQ (TGT request)",
+  "ev_krb_r": "Kerberos · AS-REP (TGT issued)",
+  "pj2_t": "OffTime · PC shutdown utility",
+  "pj2_d": "Windows 11 application with a GTK interface: scheduled shutdown, restart or sleep, automatic shutdown when a Steam download ends, system monitor (CPU, RAM, disk, network) and temporary-file cleaner.",
+  "pj3_t": "Defence / attack lab",
+  "pj3_d": "Monitor my own Active Directory (Windows logs, Sysmon, Wazuh), then practise attacking it from an isolated VM and check what the detection sees. Only inside my closed lab and on CTF platforms.",
+  "pj_more": "Other training work",
+  "c_plan": "planned",
+  "cy_off_t": "Offensive, in a lab",
+  "cy_off_d": "Attack and defence on my own AD, CTFs (TryHackMe, Root-Me, Hack The Box).",
+  "fo_t": "Professional title: Technicien supérieur systèmes et réseaux (systems and network technician)",
+  "fo_where": "MODE 83 · Brignoles (Var)",
+  "fo_b1": "Level 5 (Bac+2)",
+  "fo_b2": "IN PROGRESS",
+  "fo_d": "IP networking, Active Directory, Linux, virtualisation, security, support and troubleshooting. Final exam in December 2026.",
+  "fo_cert_h": "Practice and certifications",
+  "fo_cert_d": "I plan to practise on TryHackMe, Root-Me and Hack The Box (public profiles coming) and to take professional certifications as soon as my budget allows.",
+  "pa4_t": "Further studies",
+  "pa4_d": "IT / cybersecurity bachelor, preferably work-study (applications January – April).",
+  "pa_note_t": "First company experience: wanted",
+  "pa_note_d": "I am actively looking for it. Meanwhile I replace it with hands-on work: documented labs, scripts and online practice.",
+  "t_ping_usage": "Usage: ping dc01 | ping client",
+  "t_ping_head": "Pinging {h} [{ip}] with 32 bytes of data (simulation):",
+  "t_ping_line": "Reply from {ip}: bytes=32 time<1ms TTL=128",
+  "t_ping_stats": "Statistics: 4 sent, 4 received, 0 lost (simulation).",
+  "t_lab": "Scrolling to the lab topology…",
+  "net_scroll": "Swipe the diagram sideways to see the whole network.",
+  "net_aria": "Lab diagram: a domain controller and a client PC connected by an internal network. Firewall, DMZ, attack VM and monitoring are planned."
  },
  "zh": {
   "skip": "跳到主要内容",
   "nav_about": "关于我",
   "nav_skills": "技能",
   "nav_projects": "项目",
-  "nav_cyber": "网安",
+  "nav_cyber": "网络安全",
   "nav_path": "经历",
   "nav_contact": "联系",
   "nav_home": "首页",
   "aria_top": "回到顶部",
   "aria_lang": "语言",
   "aria_nav": "主导航",
-  "foot_note": "作品集持续更新中 · 2026 年 10 月",
+  "foot_note": "作品集持续完善中 · 2026 年 11 月更新",
   "go": "查看详情 →",
-  "title_home": "TSSR 作品集 | 系统与网络学生 – 网络安全方向 · MODE 83 布里尼奥勒",
-  "badge": "TSSR · 欢迎网络安全方向机会",
-  "job": "系统与网络高级技术员",
-  "lead": "TSSR（Bac+2）在读学生，就读于布里尼奥勒，专注<strong>网络安全</strong>方向。我通过实践学习：实验环境、虚拟机、脚本与系统加固。",
-  "btn_projects": "查看项目",
+  "title_home": "Gabriel Munos | TSSR · 系统与网络管理 · 网络安全 · 布里尼奥勒（83）",
+  "badge": "求职方向：系统与网络管理 · 技术支持",
+  "job": "系统与网络高级技术员（TSSR）· 在读",
+  "lead": "我搭建并记录基础设施实验环境（Active Directory、Linux、网络），目标是成为系统与网络管理员，并以<strong>网络安全</strong>作为中期发展方向。",
+  "btn_projects": "查看我的实验环境",
   "btn_contact": "联系我",
   "term_aria": "交互式终端：输入 help",
   "t_welcome": "欢迎！这是一个交互式终端：输入 help 查看可用命令。",
-  "t_help": "命令：\n  whoami          我是谁\n  profile         我的简介\n  skills          我的技能\n  projects        我的项目\n  goal            我的目标\n  contact         联系方式\n  open <名称>     打开页面：reseau, securite,\n                  windows, linux, virtualisation, support\n  lang <fr|en|zh> 切换语言\n  clear           清屏",
-  "t_profile": "Gabriel · TSSR 学生（Bac+2）· MODE 83，布里尼奥勒（瓦尔省）\n培训：2026 年 3 月至 12 月\n实习：2026 年 8 月 31 日至 10 月 23 日",
+  "t_help": "命令：\n  whoami          我是谁\n  profile         我的简介\n  goal            我的求职目标\n  projects        我的项目\n  skills          我的技能\n  lab             跳转到实验环境拓扑\n  ping <主机>     测试实验环境：ping dc01 | ping client\n  contact         联系方式\n  open <名称>     打开页面：reseau, securite,\n                  windows, linux, virtualisation, support\n  lang <fr|en|zh|tw> 切换语言\n  clear           清屏",
+  "t_profile": "Gabriel · TSSR 在读 · MODE 83，布里尼奥勒（瓦尔省）\n培训：2026 年 3 月至 12 月（12 月考试）\n求职方向：系统/网络管理或技术支持",
   "t_skills": "网络 · 安全 · Windows · Linux · 虚拟化 · 支持 · 脚本 · 备份\n提示：输入 open reseau 打开详情页。",
-  "t_projects": "1. 多虚拟机 Homelab\n2. Linux 网络服务（BIND9、DHCP、Apache2、NFS/Samba）\n3. Active Directory 实验（Windows Server 2022）\n4. 系统诊断工具（PowerShell）",
-  "t_goal": "TSSR → 继续深造网络安全",
+  "t_projects": "1. Active Directory 实验 · Militech（文档编写中）\n2. OffTime · 电脑定时关机工具（进行中）\n3. 攻防实验（计划中）\n+ 培训实践：多虚拟机 Homelab、Linux 网络服务、PowerShell 诊断工具",
+  "t_goal": "第一份工作：系统/网络管理或技术支持\n然后：网络安全技术员，长期目标是红队\n深造：信息技术/网络安全本科，2027 年 1–4 月申请",
   "t_contact": "gabrielmunos337@gmail.com",
   "t_unknown": "未找到命令：{c}（输入 help 查看帮助）",
-  "t_lang_ok": "语言：中文。",
-  "t_lang_usage": "用法：lang fr | lang en | lang zh",
+  "t_lang_ok": "语言：简体中文。",
+  "t_lang_usage": "用法：lang fr | lang en | lang zh | lang tw",
   "t_opening": "正在打开…",
   "t_open_usage": "用法：open reseau | securite | windows | linux | virtualisation | support",
   "t_sudo": "gabriel 不在 sudoers 文件中。此事件将被报告。",
-  "st2": "企业实习",
+  "st2": "Windows Server 2022 实验环境 + 已加入域的 Windows 11 客户端",
   "st3": "正在学习的技术领域",
-  "st4": "三语作品集",
+  "st4": "三语作品集 · 中文：初学者",
   "ab_eyebrow": "关于我",
   "ab_h2": "我是谁？",
-  "ab_p1": "我正在 MODE 83（布里尼奥勒）学习<strong>系统与网络高级技术员（TSSR）</strong>课程，时间为 2026 年 3 月至 12 月。我充满好奇、积极上进，希望在与专业人士共事中学习，在<strong>技术支持与基础设施</strong>的实际任务中创造价值，并朝<strong>网络安全专业方向</strong>发展。",
-  "ab_p2": "从餐饮到葡萄种植，多样的职业经历培养了我的服务意识、倾听能力和团队精神——做技术支持时，这些品质与技术同样重要。",
-  "f_dipl": "TSSR（Bac+2），2026 年 3–12 月",
-  "f_loc": "法国普罗旺斯 瓦尔省（83）",
-  "f_goal": "目标：网络安全",
-  "f_lang": "法语、英语、中文三语作品集",
+  "ab_p1": "我正在 MODE 83（布里尼奥勒）攻读<strong>系统与网络高级技术员（TSSR）</strong>职业资格，学习时间为 2026 年 3 月至 12 月。我的目标是先获得<strong>系统与网络管理</strong>或<strong>技术支持</strong>方向的第一份工作，在真实环境中积累经验，再逐步转向<strong>网络安全</strong>。",
+  "ab_p2": "在进入信息技术领域之前，我做过餐饮、葡萄种植和酒窖工作。与客人打交道、认真倾听和团队协作，让我学会在压力下保持冷静、把事情讲得简单明了，这些在技术支持工作中直接派上用场。",
+  "f_dipl": "TSSR 职业资格（5 级），2026 年 3–12 月",
+  "f_loc": "法国瓦尔省（83）· PACA 大区",
+  "f_goal": "目标：先做系统/网络管理，再转向网络安全",
+  "f_lang": "法语 · 英语 · 中文（中文为初学者，计划赴当地学习）",
   "v1_t": "求知欲",
   "v1_p": "我通过实践进步，并努力理解每项配置背后的原因。",
   "v2_t": "严谨与自主",
@@ -1244,42 +1650,38 @@ window.I18N = {
   "sk_method": "专业工作方法",
   "sk_method_d": "根据对象调整沟通方式、系统化解决问题、记录操作过程并持续学习。",
   "pr_eyebrow": "项目",
-  "pr_h2": "实验与作品",
-  "pr_note": "作品集持续完善中：项目会随着新的测试、文档和代码仓库逐步补全。",
-  "pr_status": "案例即将上线",
+  "pr_h2": "实验与项目",
+  "pr_note": "我亲手搭建实验环境，持续记录并不断扩展。每张卡片都标明真实进度。",
+  "pr_status": "文档即将上线",
   "pr1_t": "Homelab",
   "pr1_d": "多虚拟机基础设施（Windows Server、Linux、客户端）：网络分段、VLAN、加固测试、快照与备份。",
   "pr2_t": "Linux 网络服务",
   "pr2_d": "DNS（BIND9）、DHCP、Apache2 网站服务器、NFS/Samba 共享以及日常管理的 Bash 脚本。",
-  "pr3_t": "Active Directory 实验",
-  "pr3_d": "基于 Windows Server 2022 的 AD 域：域控制器、DNS、DHCP、加域客户端、GPO，并用 PowerShell 管理账户。",
   "pr4_t": "系统诊断工具",
   "pr4_d": "PowerShell 脚本：硬件清单、磁盘分析、网络状态、服务管理，并编译为独立可执行文件。",
-  "cy_eyebrow": "网安",
+  "cy_eyebrow": "网络安全",
   "cy_h2": "迈向网络安全",
-  "cy_sub": "我的成长路径：从扎实的基础到专业方向。",
-  "c_done": "已掌握",
-  "c_prac": "实践中",
+  "cy_sub": "我的路径：先在基础设施方面打好扎实的基础，再转向攻防安全方向。",
+  "c_done": "已具备基础",
+  "c_prac": "进行中",
   "c_disc": "学习中",
   "c_goal": "目标",
   "cy1_t": "基础",
   "cy1_d": "网络、Windows 与 Linux 系统。",
   "cy2_t": "防御",
-  "cy2_d": "系统加固、防火墙、日志、备份。",
+  "cy2_d": "系统加固、日志、监控、备份。",
   "cy3_t": "云与身份",
   "cy3_d": "Azure、AWS、访问管理。",
   "cy4_t": "专业深造",
-  "cy4_d": "继续攻读网络安全方向。",
+  "cy4_d": "网络安全本科，之后走向红队或嵌入式系统安全。",
   "pa_eyebrow": "经历",
-  "pa_h2": "我的经历",
-  "pa1_t": "系统与网络实习",
-  "pa1_d": "在企业环境中负责用户支持与部署。",
+  "pa_h2": "培训与经历",
   "pa2_d": "IP 网络、Active Directory、Linux、虚拟化、安全、技术支持与故障排查。",
   "pa3_t": "多元工作经历",
-  "pa3_d": "餐饮、葡萄种植与酒窖工作：培养了服务意识、倾听和团队精神。",
+  "pa3_d": "餐饮、葡萄种植与酒窖工作：客户沟通、倾听与团队协作。",
   "co_eyebrow": "联系",
-  "co_h2": "期待合作",
-  "co_p": "欢迎实习、学徒制（alternance）机会及技术交流。",
+  "co_h2": "期待与您合作",
+  "co_p": "欢迎就业机会（系统/网络管理、技术支持）、实习、工学交替项目及技术交流。",
   "co_loc": "法国 瓦尔省",
   "pg_eyebrow": "技能",
   "pg_notions": "核心概念",
@@ -1308,8 +1710,8 @@ window.I18N = {
   "sn_net": "网络地址",
   "sn_mask": "子网掩码",
   "sn_bc": "广播地址",
-  "sn_first": "首个可用地址",
-  "sn_last": "末个可用地址",
+  "sn_first": "第一个可用地址",
+  "sn_last": "最后一个可用地址",
   "sn_hosts": "可用主机数",
   "sn_type": "类型",
   "sn_private": "私有地址（RFC 1918）",
@@ -1332,7 +1734,7 @@ window.I18N = {
   "hash_title": "SHA-256 哈希生成器",
   "hash_help": "哈希是单向指纹：相同文本总得到相同指纹，且无法由指纹还原文本。本地计算。",
   "hash_ph": "要计算哈希的文本",
-  "hash_tip": "需要记住：存储密码应使用带盐的慢速算法（bcrypt、Argon2），而不是单纯的 SHA-256。",
+  "hash_tip": "请记住：存储密码应使用带盐的慢速算法（bcrypt、Argon2），而不是单纯的 SHA-256。",
   "hash_unavail": "SHA-256 不可用：请通过 HTTPS（GitHub Pages）或 localhost 打开页面。",
   "ch_title": "chmod 权限计算器",
   "ch_help": "勾选权限，得到八进制值和符号表示。",
@@ -1345,7 +1747,7 @@ window.I18N = {
   "ch_file": "文件",
   "ch_tip": "最小权限：只授予必要的权限。777 几乎总是错误做法。",
   "n_reseau_0_t": "IPv4 / IPv6",
-  "n_reseau_0": "地址规划为每台设备标识身份。规划得当可避免冲突，并为网络隔离打好基础。",
+  "n_reseau_0": "IP 地址用来标识每台设备。规划得当可以避免冲突，并为后续的网络隔离打好基础。",
   "n_reseau_1_t": "VLAN",
   "n_reseau_1": "把一个物理网络划分为相互隔离的逻辑网络，限制入侵的扩散范围。",
   "n_reseau_2_t": "静态 / 动态路由",
@@ -1393,7 +1795,7 @@ window.I18N = {
   "n_linux_4_t": "Bash 脚本",
   "n_linux_4": "自动化管理任务，同时注意权限和不可信输入。",
   "n_virtualisation_0_t": "VirtualBox · VMware",
-  "n_virtualisation_0": "在一台电脑上运行多台虚拟机的虚拟化软件。",
+  "n_virtualisation_0": "虚拟机监控程序（Hypervisor）：让一台电脑同时运行多台虚拟机。",
   "n_virtualisation_1_t": "虚拟机部署",
   "n_virtualisation_1": "创建可重复的测试环境：服务器、客户端、网络。",
   "n_virtualisation_2_t": "快照",
@@ -1408,10 +1810,456 @@ window.I18N = {
   "n_support_1": "倾听、复述、简明讲解：技术支持的一半是与人打交道。",
   "n_support_2_t": "软硬件",
   "n_support_2": "分清是硬件、软件还是网络故障，能节省大量时间。",
-  "n_support_3_t": "汇报记录",
+  "n_support_3_t": "记录与汇报",
   "n_support_3": "记录已做的工作，让团队能够接手，并从事件中总结经验。",
   "n_support_4_t": "工单 · 云",
-  "n_support_4": "正在学习：请求跟踪工具以及 Azure、AWS 环境，我希望进一步深入。"
+  "n_support_4": "正在学习：请求跟踪工具以及 Azure、AWS 环境，我希望进一步深入。",
+  "st1_v": "5 级",
+  "st1": "TSSR 职业资格 · 2026 年 12 月考试",
+  "st2_v": "AD DS",
+  "f_study": "计划深造：信息技术 / 网络安全本科（2027 年）",
+  "ob_eyebrow": "目标",
+  "ob_h2": "我的求职与升学目标",
+  "ob_sub": "两个计划，同一个方向：先打牢基础设施，再走向网络安全。",
+  "ob1_t": "第一份工作",
+  "ob1_d": "系统与网络管理员、技术支持或服务台岗位，希望在真实环境中学习：工单处理、终端部署、Active Directory、系统监控。",
+  "ob1_a": "培训结束后（2026 年 12 月）即可到岗 · 瓦尔省 / PACA 大区",
+  "ob1_c1": "系统与网络管理",
+  "ob1_c2": "技术支持 / 服务台",
+  "ob2_t": "继续深造",
+  "ob2_d": "信息技术 / 网络安全方向的本科（licence 或 bachelor），最好采用工学交替（alternance）形式。计划在 2027 年 1 月至 4 月提交申请。",
+  "ob2_a": "申请时间：2027 年 1 月至 4 月",
+  "ob2_c1": "信息技术本科",
+  "ob2_c2": "网络安全",
+  "ob2_c3": "工学交替",
+  "ob3_t": "长期方向",
+  "ob3_d": "积累 6 至 12 个月的基础设施经验后：先做网络安全技术员，再走向红队。更长远的目标：嵌入式系统安全，或前往亚洲（台湾、香港）从事国际化工作。",
+  "ob3_a": "中文：初学者 · 计划赴当地学习",
+  "ob3_c1": "红队",
+  "ob3_c2": "嵌入式系统",
+  "ob3_c3": "亚洲 · 台湾 / 香港",
+  "st_live": "文档编写中",
+  "st_wip": "个人项目 · 进行中",
+  "st_plan": "计划中",
+  "lab_t": "Active Directory 实验 · Militech",
+  "lab_d": "基于 Windows Server 2022（VirtualBox）的 militech.local 域：一台域控制器，以及一台已加入域的 Windows 11 客户端，运行在隔离的内部网络中。",
+  "lab_h1": "已完成的部分",
+  "lab_1": "域控制器 MILITECH-DC01（AD DS）· 192.168.91.10",
+  "lab_2": "根 OU、各部门 OU 与全局组 GG_&lt;Service&gt;",
+  "lab_3": "用于批量创建 OU、组和用户的 PowerShell 脚本",
+  "lab_4": "客户端 PC-CLIENT-1（Windows 11）已加入域 · 192.168.91.30",
+  "lab_5": "连通性已验证（放行 ICMPv4 防火墙规则后 ping 通）",
+  "lab_h2": "下一步",
+  "lab_n1": "GPO、共享与访问权限",
+  "lab_n2": "网络分段、防火墙与 DMZ",
+  "lab_n3": "日志监控（Sysmon、Wazuh）",
+  "lab_doc": "分步骤文档（PDF）：即将上线。",
+  "net_h": "实验环境拓扑",
+  "net_sub": "类似 Packet Tracer：点击设备查看信息，或发起一次通信观察数据包的流动。实线 = 已搭建，虚线 = 计划中。",
+  "net_region": "实验环境网络示意图（可横向滚动）",
+  "net_b_ping": "Ping：PC → DC",
+  "net_b_dns": "DNS 域名解析",
+  "net_b_auth": "域登录（Kerberos）",
+  "net_b_clear": "清空列表",
+  "net_th_t": "时间（秒）",
+  "net_th_from": "来自",
+  "net_th_at": "到达",
+  "net_th_type": "类型",
+  "net_empty": "暂无数据包：请先发起一次通信。",
+  "net_l_ok": "已搭建",
+  "net_l_plan": "计划中",
+  "net_l_up": "链路正常",
+  "net_note": "教学演示动画：用于说明实验环境中的通信过程，并非真实流量抓包。",
+  "net_done": "成功：{s}",
+  "net_info_ip": "地址 / 网络",
+  "net_info_state": "状态",
+  "net_pick": "点击设备查看详细信息。",
+  "dev_dc": "域控制器 · AD DS、DNS",
+  "dev_pc": "已加入域的 Windows 11 客户端",
+  "dev_sw": "VirtualBox 内部网络（虚拟交换机）",
+  "dev_fw": "区域之间的防火墙（待搭建）",
+  "dev_dmz": "位于 DMZ 区的对外服务器",
+  "dev_atk": "用于练习的隔离攻击虚拟机",
+  "dev_siem": "日志监控（Sysmon、Wazuh）",
+  "dev_sw_name": "内部网络",
+  "dev_fw_name": "防火墙",
+  "dev_dmz_name": "DMZ 服务器",
+  "dev_atk_name": "攻击虚拟机",
+  "dev_siem_name": "监控",
+  "ev_icmp_q": "ICMP · 回显请求（ping）",
+  "ev_icmp_r": "ICMP · 回显应答",
+  "ev_dns_q": "DNS · 查询 militech-dc01.militech.local",
+  "ev_dns_r": "DNS · 应答 192.168.91.10",
+  "ev_krb_q": "Kerberos · AS-REQ（请求 TGT）",
+  "ev_krb_r": "Kerberos · AS-REP（已签发 TGT）",
+  "pj2_t": "OffTime · 电脑定时关机工具",
+  "pj2_d": "Windows 11 应用，采用 GTK 界面：可定时关机、重启或睡眠，Steam 下载完成后自动关机，并提供系统监控（CPU、内存、磁盘、网络）和临时文件清理功能。",
+  "pj3_t": "攻防实验",
+  "pj3_d": "监控我自己的 Active Directory（Windows 日志、Sysmon、Wazuh），再从隔离的虚拟机对其发起攻击练习，并检查检测系统能发现什么。仅限于我的封闭实验环境和 CTF 平台。",
+  "pj_more": "其他培训实践",
+  "c_plan": "计划中",
+  "cy_off_t": "实验环境中的攻防演练",
+  "cy_off_d": "在自己的 AD 上进行攻防练习，参加 CTF（TryHackMe、Root-Me、Hack The Box）。",
+  "fo_t": "职业资格：系统与网络高级技术员（TSSR）",
+  "fo_where": "MODE 83 · 布里尼奥勒（瓦尔省）",
+  "fo_b1": "5 级（Bac+2，约相当于大专）",
+  "fo_b2": "进行中",
+  "fo_d": "IP 网络、Active Directory、Linux、虚拟化、安全、技术支持与故障排查。2026 年 12 月参加结业考试。",
+  "fo_cert_h": "实践训练与认证",
+  "fo_cert_d": "我计划在 TryHackMe、Root-Me 和 Hack The Box 上练习（公开主页即将添加），并在预算允许时考取专业认证。",
+  "pa4_t": "继续深造",
+  "pa4_d": "信息技术 / 网络安全本科，最好采用工学交替形式（1 月至 4 月申请）。",
+  "pa_note_t": "第一份企业经历：正在寻找",
+  "pa_note_d": "我正在积极寻找。在此期间，我用实际成果来弥补：有文档的实验环境、脚本以及在线练习。",
+  "t_ping_usage": "用法：ping dc01 | ping client",
+  "t_ping_head": "正在 Ping {h} [{ip}]，数据长度 32 字节（模拟）：",
+  "t_ping_line": "来自 {ip} 的回复：字节=32 时间<1ms TTL=128",
+  "t_ping_stats": "统计信息：已发送 4，已接收 4，丢失 0（模拟）。",
+  "t_lab": "正在跳转到实验环境拓扑……",
+  "net_scroll": "左右滑动示意图可查看完整网络。",
+  "net_aria": "实验环境示意图：域控制器与客户端 PC 通过内部网络相连；防火墙、DMZ、攻击虚拟机和监控系统为计划中的部分。"
+ },
+ "tw": {
+  "skip": "跳到主要內容",
+  "nav_about": "關於我",
+  "nav_skills": "技能",
+  "nav_projects": "專案",
+  "nav_cyber": "網路安全",
+  "nav_path": "經歷",
+  "nav_contact": "聯絡",
+  "nav_home": "首頁",
+  "aria_top": "回到頂部",
+  "aria_lang": "語言",
+  "aria_nav": "主導航",
+  "foot_note": "作品集持續完善中 · 2026 年 11 月更新",
+  "go": "檢視詳情 →",
+  "title_home": "Gabriel Munos | TSSR · 系統與網路管理 · 網路安全 · 布里尼奧勒（83）",
+  "badge": "求職方向：系統與網路管理 · 技術支援",
+  "job": "系統與網路高階技術員（TSSR）· 在讀",
+  "lead": "我搭建並記錄基礎設施實驗環境（Active Directory、Linux、網路），目標是成為系統與網路管理員，並以<strong>網路安全</strong>作為中期發展方向。",
+  "btn_projects": "檢視我的實驗環境",
+  "btn_contact": "聯絡我",
+  "term_aria": "互動式終端：輸入 help",
+  "t_welcome": "歡迎！這是一個互動式終端：輸入 help 檢視可用命令。",
+  "t_help": "命令：\n  whoami          我是誰\n  profile         我的簡介\n  goal            我的求職目標\n  projects        我的專案\n  skills          我的技能\n  lab             跳轉到實驗環境拓撲\n  ping <主機>     測試實驗環境：ping dc01 | ping client\n  contact         聯絡方式\n  open <名稱>     開啟頁面：reseau, securite,\n                  windows, linux, virtualisation, support\n  lang <fr|en|zh|tw> 切換語言\n  clear           清屏",
+  "t_profile": "Gabriel · TSSR 在讀 · MODE 83，布里尼奧勒（瓦爾省）\n培訓：2026 年 3 月至 12 月（12 月考試）\n求職方向：系統/網路管理或技術支援",
+  "t_skills": "網路 · 安全 · Windows · Linux · 虛擬化 · 支援 · 指令碼 · 備份\n提示：輸入 open reseau 開啟詳情頁。",
+  "t_projects": "1. Active Directory 實驗 · Militech（文件編寫中）\n2. OffTime · 電腦定時關機工具（進行中）\n3. 攻防實驗（計劃中）\n+ 培訓實踐：多虛擬機器 Homelab、Linux 網路服務、PowerShell 診斷工具",
+  "t_goal": "第一份工作：系統/網路管理或技術支援\n然後：網路安全技術員，長期目標是紅隊\n深造：資訊科技/網路安全本科，2027 年 1–4 月申請",
+  "t_contact": "gabrielmunos337@gmail.com",
+  "t_unknown": "未找到命令：{c}（輸入 help 檢視幫助）",
+  "t_lang_ok": "語言：繁體中文。",
+  "t_lang_usage": "用法：lang fr | lang en | lang zh | lang tw",
+  "t_opening": "正在開啟…",
+  "t_open_usage": "用法：open reseau | securite | windows | linux | virtualisation | support",
+  "t_sudo": "gabriel 不在 sudoers 檔案中。此事件將被報告。",
+  "st2": "Windows Server 2022 實驗環境 + 已加入網域的 Windows 11 客戶端",
+  "st3": "正在學習的技術領域",
+  "st4": "三語作品集 · 中文：初學者",
+  "ab_eyebrow": "關於我",
+  "ab_h2": "我是誰？",
+  "ab_p1": "我正在 MODE 83（布里尼奧勒）攻讀<strong>系統與網路高階技術員（TSSR）</strong>職業資格，學習時間為 2026 年 3 月至 12 月。我的目標是先獲得<strong>系統與網路管理</strong>或<strong>技術支援</strong>方向的第一份工作，在真實環境中積累經驗，再逐步轉向<strong>網路安全</strong>。",
+  "ab_p2": "在進入資訊科技領域之前，我做過餐飲、葡萄種植和酒窖工作。與客人打交道、認真傾聽和團隊協作，讓我學會在壓力下保持冷靜、把事情講得簡單明瞭，這些在技術支援工作中直接派上用場。",
+  "f_dipl": "TSSR 職業資格（5 級），2026 年 3–12 月",
+  "f_loc": "法國瓦爾省（83）· PACA 大區",
+  "f_goal": "目標：先做系統/網路管理，再轉向網路安全",
+  "f_lang": "法語 · 英語 · 中文（中文為初學者，計劃赴當地學習）",
+  "v1_t": "求知慾",
+  "v1_p": "我透過實踐進步，並努力理解每項配置背後的原因。",
+  "v2_t": "嚴謹與自主",
+  "v2_p": "我會記錄、測試、驗證：在安全領域，細節決定成敗。",
+  "v3_t": "服務意識",
+  "v3_p": "傾聽使用者、團隊協作，並能將技術問題通俗化講解。",
+  "sk_eyebrow": "技能",
+  "sk_h2": "我的工具箱",
+  "sk_sub": "以下是正在練習或學習中的技能，內容參考 TSSR 職業標準。點選卡片檢視相關知識。",
+  "sk_net": "網路",
+  "sk_sec": "安全",
+  "sk_win": "Windows",
+  "sk_lin": "Linux",
+  "sk_virt": "虛擬化",
+  "sk_sup": "支援與運維",
+  "sk_net_d": "IPv4/IPv6、VLAN、路由、DHCP/DNS、分層網路故障診斷、網路分段與互聯。",
+  "sk_sec_d": "防火牆、VPN、訪問過濾、網際網路訪問安全、系統加固與日誌分析。",
+  "sk_win_d": "Windows Server、Active Directory 網域、使用者/組、GPO、許可權與 PowerShell 指令碼。",
+  "sk_lin_d": "Debian/Ubuntu、命令列、許可權、網路服務、故障診斷與 Bash 指令碼。",
+  "sk_virt_d": "VirtualBox/VMware、虛擬基礎設施維護、快照以及備份/恢復準備。",
+  "sk_sup_d": "服務檯支援、事件分類與跟蹤、文件記錄、工作站部署與更新。",
+  "sk_auto": "自動化與指令碼",
+  "sk_auto_d": "使用 Bash 和 PowerShell 自動執行日常任務，測試指令碼、處理錯誤並編寫文件。",
+  "sk_backup": "備份與部署",
+  "sk_backup_d": "備份與恢復原則、恢復測試、儲存空間監控以及保持工作站更新。",
+  "sk_method": "專業工作方法",
+  "sk_method_d": "根據物件調整溝通方式、系統化解決問題、記錄操作過程並持續學習。",
+  "pr_eyebrow": "專案",
+  "pr_h2": "實驗與專案",
+  "pr_note": "我親手搭建實驗環境，持續記錄並不斷擴充套件。每張卡片都標明真實進度。",
+  "pr_status": "文件即將上線",
+  "pr1_t": "Homelab",
+  "pr1_d": "多虛擬機器基礎設施（Windows Server、Linux、客戶端）：網路分段、VLAN、加固測試、快照與備份。",
+  "pr2_t": "Linux 網路服務",
+  "pr2_d": "DNS（BIND9）、DHCP、Apache2 網站伺服器、NFS/Samba 共享以及日常管理的 Bash 指令碼。",
+  "pr4_t": "系統診斷工具",
+  "pr4_d": "PowerShell 指令碼：硬體清單、磁碟分析、網路狀態、服務管理，並編譯為獨立可執行檔案。",
+  "cy_eyebrow": "網路安全",
+  "cy_h2": "邁向網路安全",
+  "cy_sub": "我的路徑：先在基礎設施方面打好紮實的基礎，再轉向攻防安全方向。",
+  "c_done": "已具備基礎",
+  "c_prac": "進行中",
+  "c_disc": "學習中",
+  "c_goal": "目標",
+  "cy1_t": "基礎",
+  "cy1_d": "網路、Windows 與 Linux 系統。",
+  "cy2_t": "防禦",
+  "cy2_d": "系統加固、日誌、監控、備份。",
+  "cy3_t": "雲與身份",
+  "cy3_d": "Azure、AWS、訪問管理。",
+  "cy4_t": "專業深造",
+  "cy4_d": "網路安全本科，之後走向紅隊或嵌入式系統安全。",
+  "pa_eyebrow": "經歷",
+  "pa_h2": "培訓與經歷",
+  "pa2_d": "IP 網路、Active Directory、Linux、虛擬化、安全、技術支援與故障排查。",
+  "pa3_t": "多元工作經歷",
+  "pa3_d": "餐飲、葡萄種植與酒窖工作：客戶溝通、傾聽與團隊協作。",
+  "co_eyebrow": "聯絡",
+  "co_h2": "期待與您合作",
+  "co_p": "歡迎就業機會（系統/網路管理、技術支援）、實習、工學交替專案及技術交流。",
+  "co_loc": "法國 瓦爾省",
+  "pg_eyebrow": "技能",
+  "pg_notions": "核心概念",
+  "pg_try": "動手試試",
+  "pg_related": "相關專案",
+  "pg_prev": "上一項",
+  "pg_next": "下一項",
+  "pg_all": "全部技能",
+  "pg_sub": "我練習的內容，以及它們在安全中的意義。",
+  "title_reseau": "網路 | Gabriel 的作品集",
+  "title_securite": "安全 | Gabriel 的作品集",
+  "title_windows": "Windows | Gabriel 的作品集",
+  "title_linux": "Linux | Gabriel 的作品集",
+  "title_virtualisation": "虛擬化 | Gabriel 的作品集",
+  "title_support": "支援 | Gabriel 的作品集",
+  "int_reseau": "網路是一切基礎設施的基礎，也是第一道攻擊面。以下是我正在練習的概念，以及它們對安全的意義。",
+  "int_securite": "安全不是一款產品，而是處處落實的一系列良好實踐。以下是我正在學習的幾大支柱。",
+  "int_windows": "在大多數企業中，Active Directory 目錄服務是資訊系統的核心：無論管理還是安全，理解它都必不可少。",
+  "int_linux": "Linux 執行著大量伺服器和安全工具。我在命令列中練習，就像操作真實伺服器一樣。",
+  "int_virtualisation": "虛擬化讓我能在一臺電腦上搭建完整實驗環境，安全地試錯，並可原樣重來。",
+  "int_support": "技術支援既關乎技術也關乎人：理解問題、解決問題，再用簡單的方式講清楚。",
+  "sn_title": "IPv4 子網計算器",
+  "sn_help": "輸入帶字首的位址（如 192.168.1.10/24）。計算在瀏覽器本地完成，不會傳送任何資料。",
+  "sn_btn": "計算",
+  "sn_err": "格式無效。示例：192.168.1.10/24",
+  "sn_net": "網路位址",
+  "sn_mask": "子網掩碼",
+  "sn_bc": "廣播位址",
+  "sn_first": "第一個可用位址",
+  "sn_last": "最後一個可用位址",
+  "sn_hosts": "可用主機數",
+  "sn_type": "型別",
+  "sn_private": "私有位址（RFC 1918）",
+  "sn_public": "公網位址",
+  "sn_loop": "環回位址",
+  "sn_ll": "鏈路本地（APIPA）",
+  "pw_title": "密碼強度檢測",
+  "pw_help": "在瀏覽器內做的粗略估算：不會傳送或儲存任何內容。請不要輸入你正在使用的真實密碼。",
+  "pw_ph": "輸入測試密碼",
+  "pw_show": "顯示",
+  "pw_len": "長度",
+  "pw_bits": "估算熵值",
+  "pw_level": "等級",
+  "pw_l0": "極弱",
+  "pw_l1": "弱",
+  "pw_l2": "一般",
+  "pw_l3": "強",
+  "pw_l4": "很強",
+  "pw_tip": "最有效的做法：使用長密碼短語，每個服務各不相同，配合密碼管理器和雙因素認證。",
+  "hash_title": "SHA-256 雜湊生成器",
+  "hash_help": "雜湊是單向指紋：相同文字總得到相同指紋，且無法由指紋還原文字。本地計算。",
+  "hash_ph": "要計算雜湊的文字",
+  "hash_tip": "請記住：儲存密碼應使用帶鹽的慢速演算法（bcrypt、Argon2），而不是單純的 SHA-256。",
+  "hash_unavail": "SHA-256 不可用：請透過 HTTPS（GitHub Pages）或 localhost 開啟頁面。",
+  "ch_title": "chmod 許可權計算器",
+  "ch_help": "勾選許可權，得到八進位制值和符號表示。",
+  "ch_user": "所有者",
+  "ch_group": "使用者組",
+  "ch_other": "其他人",
+  "ch_octal": "八進位制值",
+  "ch_sym": "符號表示",
+  "ch_cmd": "命令",
+  "ch_file": "檔案",
+  "ch_tip": "最小許可權：只授予必要的許可權。777 幾乎總是錯誤做法。",
+  "n_reseau_0_t": "IPv4 / IPv6",
+  "n_reseau_0": "IP 位址用來標識每臺裝置。規劃得當可以避免衝突，併為後續的網路隔離打好基礎。",
+  "n_reseau_1_t": "VLAN",
+  "n_reseau_1": "把一個物理網路劃分為相互隔離的邏輯網路，限制入侵的擴散範圍。",
+  "n_reseau_2_t": "靜態 / 動態路由",
+  "n_reseau_2": "路由決定資料包的走向。配置錯誤的路由可能意外暴露或隔斷某個網段。",
+  "n_reseau_3_t": "DHCP · DNS",
+  "n_reseau_3": "DHCP 負責分配位址，DNS 負責網域名稱解析。偽造的 DHCP 伺服器或被劫持的 DNS 會重新導向流量，是典型攻擊目標。",
+  "n_reseau_4_t": "SSH · FTP",
+  "n_reseau_4": "SSH 提供加密的遠端訪問，應配合金鑰和訪問限制。傳統 FTP 不加密，更推薦 SFTP 或 FTPS。",
+  "n_reseau_5_t": "網路分段",
+  "n_reseau_5": "把使用者、伺服器、訪客等區域分開，使事件被限制在區域性，而不是蔓延到整個網路。",
+  "n_securite_0_t": "防火牆",
+  "n_securite_0": "按規則過濾流量。良好實踐：預設全部拒絕，僅放行必要的流量。",
+  "n_securite_1_t": "VPN",
+  "n_securite_1": "加密隧道，把分支機構或遠端辦公人員安全地接入公司網路，避免流量暴露。",
+  "n_securite_2_t": "訪問過濾與許可權",
+  "n_securite_2": "控制誰可以訪問什麼（使用者組、訪問控制列表）。這就是最小許可權原則。",
+  "n_securite_3_t": "日誌分析",
+  "n_securite_3": "日誌能暴露可疑登入、錯誤和入侵嘗試，是最基本的檢測手段。",
+  "n_securite_4_t": "系統加固",
+  "n_securite_4": "縮小攻擊面：關閉不必要的服務、及時更新、採用安全配置。",
+  "n_securite_5_t": "密碼策略",
+  "n_securite_5": "足夠長度、每個服務唯一、失敗多次後鎖定，並儘可能啟用雙因素認證。",
+  "n_securite_6_t": "備份",
+  "n_securite_6": "抵禦勒索軟體的最後一道防線。3-2-1 原則：3 份副本、2 種介質、1 份異地，並定期測試恢復。",
+  "n_windows_0_t": "Windows Server",
+  "n_windows_0": "微軟的伺服器作業系統，承載 AD、DNS、DHCP 等角色，需要及時更新並加固。",
+  "n_windows_1_t": "Active Directory",
+  "n_windows_1": "網域內使用者、組和計算機的中央目錄。一旦被攻破，整個網域都會失守。",
+  "n_windows_2_t": "使用者與組",
+  "n_windows_2": "把許可權授予使用者組而不是個人，可簡化管理並減少失誤。",
+  "n_windows_3_t": "GPO",
+  "n_windows_3": "組策略可一次性把配置和安全規則應用到整批計算機。",
+  "n_windows_4_t": "訪問許可權",
+  "n_windows_4": "核查資料夾和共享上實際生效的許可權，避免許可權過寬。",
+  "n_windows_5_t": "PowerShell",
+  "n_windows_5": "以可重複、可追溯的方式自動化管理（賬戶、清單、服務）。",
+  "n_linux_0_t": "命令列",
+  "n_linux_0": "無需圖形介面即可管理系統，包括透過 SSH 遠端操作，這是伺服器的日常。",
+  "n_linux_1_t": "許可權",
+  "n_linux_1": "所有者、使用者組和其他人的讀、寫、執行許可權。這就是 Linux 版的最小許可權，試試下面的計算器。",
+  "n_linux_2_t": "Debian / Ubuntu",
+  "n_linux_2": "非常常見的伺服器發行版：包管理和定期的安全更新。",
+  "n_linux_3_t": "Apache / Nginx",
+  "n_linux_3": "需要加固的 Web 伺服器：啟用 HTTPS、隱藏版本資訊、關閉不必要的模組。",
+  "n_linux_4_t": "Bash 指令碼",
+  "n_linux_4": "自動化管理任務，同時注意許可權和不可信輸入。",
+  "n_virtualisation_0_t": "VirtualBox · VMware",
+  "n_virtualisation_0": "虛擬機器監控程式（Hypervisor）：讓一臺電腦同時執行多臺虛擬機器。",
+  "n_virtualisation_1_t": "虛擬機器部署",
+  "n_virtualisation_1": "建立可重複的測試環境：伺服器、客戶端、網路。",
+  "n_virtualisation_2_t": "快照",
+  "n_virtualisation_2": "在高風險變更前給虛擬機器拍一張“快照”，出錯時幾下點選即可回滾。",
+  "n_virtualisation_3_t": "虛擬網路",
+  "n_virtualisation_3": "內部網路、NAT、橋接：選擇合適的模式，把實驗環境與真實網路隔離。",
+  "n_virtualisation_4_t": "對安全的意義",
+  "n_virtualisation_4": "隔離的實驗環境讓你可以放心嘗試攻擊與防禦，而不會危及真實裝置。",
+  "n_support_0_t": "故障診斷",
+  "n_support_0": "復現、定位、修復：動手改配置之前先有方法。",
+  "n_support_1_t": "使用者支援",
+  "n_support_1": "傾聽、複述、簡明講解：技術支援的一半是與人打交道。",
+  "n_support_2_t": "軟硬體",
+  "n_support_2": "分清是硬體、軟體還是網路故障，能節省大量時間。",
+  "n_support_3_t": "記錄與彙報",
+  "n_support_3": "記錄已做的工作，讓團隊能夠接手，並從事件中總結經驗。",
+  "n_support_4_t": "工單 · 雲",
+  "n_support_4": "正在學習：請求跟蹤工具以及 Azure、AWS 環境，我希望進一步深入。",
+  "st1_v": "5 級",
+  "st1": "TSSR 職業資格 · 2026 年 12 月考試",
+  "st2_v": "AD DS",
+  "f_study": "計劃深造：資訊科技 / 網路安全本科（2027 年）",
+  "ob_eyebrow": "目標",
+  "ob_h2": "我的求職與升學目標",
+  "ob_sub": "兩個計劃，同一個方向：先打牢基礎設施，再走向網路安全。",
+  "ob1_t": "第一份工作",
+  "ob1_d": "系統與網路管理員、技術支援或服務檯崗位，希望在真實環境中學習：工單處理、終端部署、Active Directory、系統監控。",
+  "ob1_a": "培訓結束後（2026 年 12 月）即可到崗 · 瓦爾省 / PACA 大區",
+  "ob1_c1": "系統與網路管理",
+  "ob1_c2": "技術支援 / 服務檯",
+  "ob2_t": "繼續深造",
+  "ob2_d": "資訊科技 / 網路安全方向的本科（licence 或 bachelor），最好採用工學交替（alternance）形式。計劃在 2027 年 1 月至 4 月提交申請。",
+  "ob2_a": "申請時間：2027 年 1 月至 4 月",
+  "ob2_c1": "資訊科技本科",
+  "ob2_c2": "網路安全",
+  "ob2_c3": "工學交替",
+  "ob3_t": "長期方向",
+  "ob3_d": "積累 6 至 12 個月的基礎設施經驗後：先做網路安全技術員，再走向紅隊。更長遠的目標：嵌入式系統安全，或前往亞洲（臺灣、香港）從事國際化工作。",
+  "ob3_a": "中文：初學者 · 計劃赴當地學習",
+  "ob3_c1": "紅隊",
+  "ob3_c2": "嵌入式系統",
+  "ob3_c3": "亞洲 · 臺灣 / 香港",
+  "st_live": "文件編寫中",
+  "st_wip": "個人專案 · 進行中",
+  "st_plan": "計劃中",
+  "lab_t": "Active Directory 實驗 · Militech",
+  "lab_d": "基於 Windows Server 2022（VirtualBox）的 militech.local 網域：一臺網域控制站，以及一臺已加入網域的 Windows 11 客戶端，執行在隔離的內部網路中。",
+  "lab_h1": "已完成的部分",
+  "lab_1": "網域控制站 MILITECH-DC01（AD DS）· 192.168.91.10",
+  "lab_2": "根 OU、各部門 OU 與全域性組 GG_&lt;Service&gt;",
+  "lab_3": "用於批次建立 OU、組和使用者的 PowerShell 指令碼",
+  "lab_4": "客戶端 PC-CLIENT-1（Windows 11）已加入網域 · 192.168.91.30",
+  "lab_5": "連通性已驗證（放行 ICMPv4 防火牆規則後 ping 通）",
+  "lab_h2": "下一步",
+  "lab_n1": "GPO、共享與訪問許可權",
+  "lab_n2": "網路分段、防火牆與 DMZ",
+  "lab_n3": "日誌監控（Sysmon、Wazuh）",
+  "lab_doc": "分步驟文件（PDF）：即將上線。",
+  "net_h": "實驗環境拓撲",
+  "net_sub": "類似 Packet Tracer：點選裝置檢視資訊，或發起一次通訊觀察資料包的流動。實線 = 已搭建，虛線 = 計劃中。",
+  "net_region": "實驗環境網路示意圖（可橫向滾動）",
+  "net_b_ping": "Ping：PC → DC",
+  "net_b_dns": "DNS 網域名稱解析",
+  "net_b_auth": "網域登入（Kerberos）",
+  "net_b_clear": "清空列表",
+  "net_th_t": "時間（秒）",
+  "net_th_from": "來自",
+  "net_th_at": "到達",
+  "net_th_type": "型別",
+  "net_empty": "暫無資料包：請先發起一次通訊。",
+  "net_l_ok": "已搭建",
+  "net_l_plan": "計劃中",
+  "net_l_up": "鏈路正常",
+  "net_note": "教學演示動畫：用於說明實驗環境中的通訊過程，並非真實流量抓包。",
+  "net_done": "成功：{s}",
+  "net_info_ip": "位址 / 網路",
+  "net_info_state": "狀態",
+  "net_pick": "點選裝置檢視詳細資訊。",
+  "dev_dc": "網域控制站 · AD DS、DNS",
+  "dev_pc": "已加入網域的 Windows 11 客戶端",
+  "dev_sw": "VirtualBox 內部網路（虛擬交換機）",
+  "dev_fw": "區域之間的防火牆（待搭建）",
+  "dev_dmz": "位於 DMZ 區的對外伺服器",
+  "dev_atk": "用於練習的隔離攻擊虛擬機器",
+  "dev_siem": "日誌監控（Sysmon、Wazuh）",
+  "dev_sw_name": "內部網路",
+  "dev_fw_name": "防火牆",
+  "dev_dmz_name": "DMZ 伺服器",
+  "dev_atk_name": "攻擊虛擬機器",
+  "dev_siem_name": "監控",
+  "ev_icmp_q": "ICMP · 回顯請求（ping）",
+  "ev_icmp_r": "ICMP · 回顯應答",
+  "ev_dns_q": "DNS · 查詢 militech-dc01.militech.local",
+  "ev_dns_r": "DNS · 應答 192.168.91.10",
+  "ev_krb_q": "Kerberos · AS-REQ（請求 TGT）",
+  "ev_krb_r": "Kerberos · AS-REP（已簽發 TGT）",
+  "pj2_t": "OffTime · 電腦定時關機工具",
+  "pj2_d": "Windows 11 應用，採用 GTK 介面：可定時關機、重啟或睡眠，Steam 下載完成後自動關機，並提供系統監控（CPU、記憶體、磁碟、網路）和臨時檔案清理功能。",
+  "pj3_t": "攻防實驗",
+  "pj3_d": "監控我自己的 Active Directory（Windows 日誌、Sysmon、Wazuh），再從隔離的虛擬機器對其發起攻擊練習，並檢查檢測系統能發現什麼。僅限於我的封閉實驗環境和 CTF 平臺。",
+  "pj_more": "其他培訓實踐",
+  "c_plan": "計劃中",
+  "cy_off_t": "實驗環境中的攻防演練",
+  "cy_off_d": "在自己的 AD 上進行攻防練習，參加 CTF（TryHackMe、Root-Me、Hack The Box）。",
+  "fo_t": "職業資格：系統與網路高階技術員（TSSR）",
+  "fo_where": "MODE 83 · 布里尼奧勒（瓦爾省）",
+  "fo_b1": "5 級（Bac+2，約相當於大專）",
+  "fo_b2": "進行中",
+  "fo_d": "IP 網路、Active Directory、Linux、虛擬化、安全、技術支援與故障排查。2026 年 12 月參加結業考試。",
+  "fo_cert_h": "實踐訓練與認證",
+  "fo_cert_d": "我計劃在 TryHackMe、Root-Me 和 Hack The Box 上練習（公開主頁即將新增），並在預算允許時考取專業認證。",
+  "pa4_t": "繼續深造",
+  "pa4_d": "資訊科技 / 網路安全本科，最好採用工學交替形式（1 月至 4 月申請）。",
+  "pa_note_t": "第一份企業經歷：正在尋找",
+  "pa_note_d": "我正在積極尋找。在此期間，我用實際成果來彌補：有文件的實驗環境、指令碼以及線上練習。",
+  "t_ping_usage": "用法：ping dc01 | ping client",
+  "t_ping_head": "正在 Ping {h} [{ip}]，資料長度 32 位元組（模擬）：",
+  "t_ping_line": "來自 {ip} 的回覆：位元組=32 時間<1ms TTL=128",
+  "t_ping_stats": "統計資訊：已傳送 4，已接收 4，丟失 0（模擬）。",
+  "t_lab": "正在跳轉到實驗環境拓撲……",
+  "net_scroll": "左右滑動示意圖可檢視完整網路。",
+  "net_aria": "實驗環境示意圖：網域控制站與客戶端 PC 透過內部網路相連；防火牆、DMZ、攻擊虛擬機器和監控系統為計劃中的部分。"
  }
 };
 
@@ -1423,9 +2271,10 @@ window.I18N = {
   'use strict';
 
   var I = window.I18N || {};
-  var LANGS = ['fr', 'en', 'zh'];
-  var HTML_LANG = { fr: 'fr', en: 'en', zh: 'zh-CN' };
+  var LANGS = ['fr', 'en', 'zh', 'tw'];
+  var HTML_LANG = { fr: 'fr', en: 'en', zh: 'zh-CN', tw: 'zh-TW' };
   var cur = 'fr';
+  var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
 
   function tr(key) {
     return (I[cur] && I[cur][key]) || (I.fr && I.fr[key]) || key;
@@ -1462,7 +2311,7 @@ window.I18N = {
   try { saved = localStorage.getItem('lang'); } catch (e) {}
   if (LANGS.indexOf(saved) < 0) {
     var nav = (navigator.language || '').toLowerCase();
-    saved = nav.indexOf('zh') === 0 ? 'zh' : nav.indexOf('en') === 0 ? 'en' : 'fr';
+    saved = /^zh-(tw|hk|mo|hant)/.test(nav) ? 'tw' : nav.indexOf('zh') === 0 ? 'zh' : nav.indexOf('en') === 0 ? 'en' : 'fr';
   }
   document.querySelectorAll('[data-set]').forEach(function (b) {
     b.addEventListener('click', function () { applyLang(b.getAttribute('data-set')); });
@@ -1508,6 +2357,26 @@ window.I18N = {
     }, { passive: true });
     top.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
   }
+
+  /* ---------- menu mobile ---------- */
+  var burger = document.getElementById('burger');
+  var linkBox = document.getElementById('main-links');
+  if (burger && linkBox) {
+    burger.addEventListener('click', function () {
+      var open = linkBox.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+    });
+    linkBox.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        linkBox.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+        burger.innerHTML = '<i class="fa-solid fa-bars"></i>';
+      });
+    });
+  }
+  var yr = document.getElementById('yr');
+  if (yr) yr.textContent = String(new Date().getFullYear());
 
   /* ---------- terminal interactif ---------- */
   var term = document.getElementById('term');
@@ -1566,7 +2435,31 @@ window.I18N = {
         case 'ls': print('reseau/  securite/  windows/  linux/  virtualisation/  support/', 'out'); break;
         case 'projects': case 'projets': print(tr('t_projects'), 'out'); break;
         case 'goal': case 'objectif': case 'objective': print(tr('t_goal'), 'out'); break;
-        case 'contact': print(tr('t_contact'), 'out'); break;
+        case 'contact':
+          var cd = document.createElement('div');
+          cd.className = 'term-line out';
+          var ca = document.createElement('a');
+          ca.href = 'mailto:gabrielmunos337@gmail.com';
+          ca.textContent = tr('t_contact');
+          cd.appendChild(ca);
+          out.appendChild(cd);
+          break;
+        case 'lab':
+          print(tr('t_lab'), 'out');
+          var lb = document.getElementById('lab');
+          if (lb) setTimeout(function () { lb.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }, 250);
+          break;
+        case 'ping':
+          var tgt = (arg === 'dc01' || arg === 'dc' || arg === 'militech-dc01') ? 'dc' : (arg === 'client' || arg === 'pc' || arg === 'pc-client-1') ? 'pc' : '';
+          if (!tgt) { print(tr('t_ping_usage'), 'out'); break; }
+          var hn = tgt === 'dc' ? 'MILITECH-DC01' : 'PC-CLIENT-1', hip = tgt === 'dc' ? '192.168.91.10' : '192.168.91.30';
+          print(tr('t_ping_head').replace('{h}', hn).replace('{ip}', hip));
+          document.dispatchEvent(new CustomEvent('netping', { detail: { from: tgt === 'dc' ? 'pc' : 'dc', to: tgt } }));
+          [1, 2, 3, 4].forEach(function (n) {
+            setTimeout(function () { print(tr('t_ping_line').replace('{ip}', hip)); }, reduce ? 0 : n * 450);
+          });
+          setTimeout(function () { print(tr('t_ping_stats'), 'out'); }, reduce ? 0 : 5 * 450);
+          break;
         case 'clear': case 'cls': out.innerHTML = ''; break;
         case 'sudo': print(tr('t_sudo'), 'out'); break;
         case 'lang':
@@ -1576,7 +2469,7 @@ window.I18N = {
         case 'open': case 'cd': case 'ouvrir':
           if (PAGES[arg]) {
             print(tr('t_opening'), 'out');
-            setTimeout(function () { window.location.href = 'competences/' + PAGES[arg] + '.html'; }, 500);
+            setTimeout(function () { window.location.hash = '#competence-' + PAGES[arg]; }, 400);
           } else print(tr('t_open_usage'), 'out');
           break;
         default: print(tr('t_unknown').replace('{c}', cmd), 'out');
@@ -1712,7 +2605,7 @@ window.I18N = {
     };
     hi.addEventListener('input', hashNow);
     document.addEventListener('langchange', function () {
-      if (ho.textContent === I.fr.hash_unavail || ho.textContent === I.en.hash_unavail || ho.textContent === I.zh.hash_unavail) hashNow();
+      if (ho.textContent === I.fr.hash_unavail || ho.textContent === I.en.hash_unavail || ho.textContent === I.zh.hash_unavail || ho.textContent === I.tw.hash_unavail) hashNow();
     });
   }
 
@@ -1740,6 +2633,190 @@ window.I18N = {
     cmod();
   }
 
+
+  /* ---------- topologie réseau du labo (style Packet Tracer) ---------- */
+  var netSvg = document.getElementById('net-svg');
+  if (netSvg) {
+    var DEV = {
+      dc:   { x: 170, y: 105, t: 'server', name: 'MILITECH-DC01', ip: '192.168.91.10', role: 'dev_dc', ok: 1 },
+      pc:   { x: 170, y: 300, t: 'pc', name: 'PC-CLIENT-1', ip: '192.168.91.30', role: 'dev_pc', ok: 1 },
+      sw:   { x: 400, y: 205, t: 'switch', nk: 'dev_sw_name', ip: '192.168.91.0/24', role: 'dev_sw', ok: 1 },
+      fw:   { x: 590, y: 205, t: 'fw', nk: 'dev_fw_name', ip: '', role: 'dev_fw', ok: 0 },
+      dmz:  { x: 725, y: 95, t: 'server', nk: 'dev_dmz_name', ip: '', role: 'dev_dmz', ok: 0 },
+      atk:  { x: 725, y: 305, t: 'pc', nk: 'dev_atk_name', ip: '', role: 'dev_atk', ok: 0 },
+      siem: { x: 400, y: 52, t: 'server', nk: 'dev_siem_name', ip: '', role: 'dev_siem', ok: 0, lp: 'r' }
+    };
+    var LINKS = [['dc', 'sw', 1], ['pc', 'sw', 1], ['sw', 'fw', 0], ['fw', 'dmz', 0], ['fw', 'atk', 0], ['sw', 'siem', 0]];
+    var TYPES = { icmp_q: '#e5484d', icmp_r: '#e5484d', dns_q: '#f0b429', dns_r: '#f0b429', krb_q: '#5aa9ff', krb_r: '#5aa9ff' };
+    var rowsEl = document.getElementById('net-rows');
+    var infoEl = document.getElementById('net-info');
+    var statusEl = document.getElementById('net-status');
+    var btns = document.querySelectorAll('[data-sc]');
+    var clearBtn = document.getElementById('net-clear');
+    var events = [], simT = 0, sel = 'dc', chain = Promise.resolve(), pending = 0, pkt;
+
+    var icon = function (t) {
+      if (t === 'server') return '<rect class="dv" x="-22" y="-30" width="44" height="60" rx="6"/><path class="dl" d="M-14 -14h28M-14 0h28M-14 14h28"/><circle class="dd" cx="-14" cy="-22" r="2.2"/><circle class="dd" cx="-6" cy="-22" r="2.2"/>';
+      if (t === 'pc') return '<rect class="dv" x="-27" y="-24" width="54" height="36" rx="4"/><path class="dl" d="M0 12v10M-14 22h28"/>';
+      if (t === 'switch') return '<rect class="dv" x="-34" y="-14" width="68" height="28" rx="5"/><path class="dl" d="M-22 -4h40m-7 -6l7 6l-7 6M22 6h-40m7 -6l-7 6l7 6"/>';
+      return '<rect class="dv" x="-30" y="-24" width="60" height="48" rx="4"/><path class="dl" d="M-30 -8h60M-30 8h60M0 -24v16M-15 -8v16M15 -8v16M0 8v16"/>';
+    };
+    var nameOf = function (id) { var d = DEV[id]; return d.name || tr(d.nk); };
+
+    var buildNet = function () {
+      var h = '';
+      LINKS.forEach(function (l) {
+        var a = DEV[l[0]], b = DEV[l[1]];
+        var c = 'x1="' + a.x + '" y1="' + a.y + '" x2="' + b.x + '" y2="' + b.y + '"';
+        h += '<line class="lk ' + (l[2] ? 'ok' : 'plan') + '" ' + c + '/>';
+        if (l[2]) h += '<line class="lk flow" ' + c + '/>';
+      });
+      LINKS.forEach(function (l) {
+        if (!l[2]) return;
+        [[l[0], l[1]], [l[1], l[0]]].forEach(function (p) {
+          var a = DEV[p[0]], b = DEV[p[1]], dx = b.x - a.x, dy = b.y - a.y, L = Math.sqrt(dx * dx + dy * dy), k = 42 / L;
+          h += '<circle class="led" cx="' + (a.x + dx * k).toFixed(1) + '" cy="' + (a.y + dy * k).toFixed(1) + '" r="4"/>';
+        });
+      });
+      Object.keys(DEV).forEach(function (id) {
+        var d = DEV[id], r = d.lp === 'r';
+        var nx = r ? 36 : 0, ny = r ? -2 : 52, iy = r ? 15 : 69;
+        h += '<g class="dev ' + (d.ok ? 'ok' : 'plan') + (r ? ' r' : '') + '" data-id="' + id + '" transform="translate(' + d.x + ',' + d.y + ')" tabindex="0" role="button">'
+          + '<rect class="ring" x="-46" y="-42" width="92" height="132" rx="10"/>' + icon(d.t)
+          + '<text class="dn" x="' + nx + '" y="' + ny + '"' + (d.name ? '>' + d.name : ' data-nk="' + d.nk + '">') + '</text>'
+          + '<text class="di" x="' + nx + '" y="' + iy + '"' + (d.ok ? '>' + d.ip : ' data-nk="net_l_plan">') + '</text></g>';
+      });
+      h += '<g class="pkt" visibility="hidden"><rect x="-11" y="-8" width="22" height="16" rx="2.5" fill="#e5484d"/><path d="M-11 -8l11 9l11 -9"/></g>';
+      netSvg.innerHTML = h;
+      pkt = netSvg.querySelector('.pkt');
+    };
+
+    var renderInfo = function () {
+      var d = DEV[sel];
+      infoEl.innerHTML = '';
+      var h4 = document.createElement('h4'); h4.textContent = nameOf(sel);
+      var p = document.createElement('p'); p.textContent = tr(d.role);
+      var dl = document.createElement('dl');
+      var add = function (k, v) {
+        var dt = document.createElement('dt'); dt.textContent = k;
+        var dd = document.createElement('dd'); dd.textContent = v;
+        dl.appendChild(dt); dl.appendChild(dd);
+      };
+      add(tr('net_info_ip'), d.ip || '—');
+      add(tr('net_info_state'), tr(d.ok ? 'net_l_ok' : 'net_l_plan'));
+      infoEl.appendChild(h4); infoEl.appendChild(p); infoEl.appendChild(dl);
+    };
+    var renderRows = function () {
+      rowsEl.innerHTML = '';
+      if (!events.length) {
+        var e0 = document.createElement('tr'); e0.className = 'net-empty';
+        var c0 = document.createElement('td'); c0.colSpan = 4; c0.textContent = tr('net_empty');
+        e0.appendChild(c0); rowsEl.appendChild(e0); return;
+      }
+      events.forEach(function (ev) {
+        var tr_ = document.createElement('tr');
+        var cells = [ev.t.toFixed(3), nameOf(ev.from), nameOf(ev.at)];
+        cells.forEach(function (t) { var td = document.createElement('td'); td.textContent = t; tr_.appendChild(td); });
+        var td = document.createElement('td');
+        var sw = document.createElement('span'); sw.className = 'sw'; sw.style.background = TYPES[ev.type];
+        td.appendChild(sw); td.appendChild(document.createTextNode(tr('ev_' + ev.type)));
+        tr_.appendChild(td); rowsEl.appendChild(tr_);
+      });
+      rowsEl.parentNode.parentNode.scrollTop = 99999;
+    };
+    var refreshNet = function () {
+      netSvg.querySelectorAll('[data-nk]').forEach(function (t) { t.textContent = tr(t.getAttribute('data-nk')); });
+      netSvg.querySelectorAll('.dev').forEach(function (g) {
+        var id = g.getAttribute('data-id');
+        g.setAttribute('aria-label', nameOf(id) + ' — ' + tr(DEV[id].role));
+        g.classList.toggle('sel', id === sel);
+      });
+      renderInfo(); renderRows();
+    };
+    var select = function (id) { if (!DEV[id]) return; sel = id; refreshNet(); };
+    netSvg.addEventListener('click', function (e) {
+      var g = e.target.closest ? e.target.closest('.dev') : null;
+      if (g) select(g.getAttribute('data-id'));
+    });
+    netSvg.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      var g = e.target.closest ? e.target.closest('.dev') : null;
+      if (g) { e.preventDefault(); select(g.getAttribute('data-id')); }
+    });
+
+    var setPos = function (x, y) { pkt.setAttribute('transform', 'translate(' + x + ',' + y + ')'); };
+    var moveTo = function (a, b, ms) {
+      return new Promise(function (res) {
+        if (reduce) { setPos(b.x, b.y); setTimeout(res, 200); return; }
+        var t0 = null;
+        var step = function (ts) {
+          if (t0 === null) t0 = ts;
+          var p = Math.min(1, (ts - t0) / ms), e = p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+          setPos(a.x + (b.x - a.x) * e, a.y + (b.y - a.y) * e);
+          if (p < 1) requestAnimationFrame(step); else res();
+        };
+        requestAnimationFrame(step);
+      });
+    };
+    var send = function (path, type) {
+      var p = Promise.resolve();
+      p = p.then(function () {
+        pkt.querySelector('rect').setAttribute('fill', TYPES[type]);
+        setPos(DEV[path[0]].x, DEV[path[0]].y);
+        pkt.setAttribute('visibility', 'visible');
+      });
+      path.slice(1).forEach(function (id, i) {
+        p = p.then(function () {
+          var a = DEV[path[i]], b = DEV[id];
+          var dist = Math.sqrt(Math.pow(b.x - a.x, 2) + Math.pow(b.y - a.y, 2));
+          return moveTo(a, b, Math.max(420, dist * 2.6)).then(function () {
+            simT += 0.001;
+            events.push({ t: simT, from: path[i], at: id, type: type });
+            if (events.length > 40) events.shift();
+            renderRows();
+          });
+        });
+      });
+      return p.then(function () { pkt.setAttribute('visibility', 'hidden'); });
+    };
+    var SC = {
+      ping: function (a, b) { return [[[a, 'sw', b], 'icmp_q'], [[b, 'sw', a], 'icmp_r']]; },
+      dns:  function (a, b) { return [[[a, 'sw', b], 'dns_q'], [[b, 'sw', a], 'dns_r']]; },
+      auth: function (a, b) { return [[[a, 'sw', b], 'krb_q'], [[b, 'sw', a], 'krb_r']]; }
+    };
+    var setBusy = function () {
+      btns.forEach(function (b) { if (pending > 0) b.setAttribute('disabled', ''); else b.removeAttribute('disabled'); });
+    };
+    var netRun = function (name, a, b) {
+      pending++; setBusy();
+      chain = chain.then(function () {
+        var p = Promise.resolve();
+        SC[name](a, b).forEach(function (s) { p = p.then(function () { return send(s[0], s[1]); }); });
+        return p.then(function () {
+          pending--; setBusy();
+          var label = name === 'ping' ? 'ICMP ' + nameOf(a) + ' ⇄ ' + nameOf(b) : tr('net_b_' + name);
+          statusEl.textContent = tr('net_done').replace('{s}', label);
+        });
+      });
+    };
+    btns.forEach(function (b) {
+      b.addEventListener('click', function () { if (!pending) netRun(b.getAttribute('data-sc'), 'pc', 'dc'); });
+    });
+    if (clearBtn) clearBtn.addEventListener('click', function () { events = []; simT = 0; renderRows(); });
+    document.addEventListener('netping', function (e) { netRun('ping', e.detail.from, e.detail.to); });
+    document.addEventListener('langchange', refreshNet);
+
+    buildNet();
+    refreshNet();
+    var nc = document.getElementById('net-canvas');
+    if ('IntersectionObserver' in window && !reduce && nc) {
+      var once = new IntersectionObserver(function (es) {
+        if (es[0].isIntersecting) { once.disconnect(); setTimeout(function () { netRun('ping', 'pc', 'dc'); }, 700); }
+      }, { threshold: 0.4 });
+      once.observe(nc);
+    }
+  }
+
   applyLang(saved);
 })();
 
@@ -1749,12 +2826,21 @@ window.I18N = {
  const keys=['reseau','securite','windows','linux','virtualisation','support'];
  const homeMain=document.querySelector('#main-content');
  const homeChildren=Array.from(homeMain.children).filter(el=>!el.classList.contains('single-competence'));
+ var baseTitle=document.title;
  function route(){
   const match=location.hash.match(/^#competence-(reseau|securite|windows|linux|virtualisation|support)$/);
   const active=match?match[1]:null;
   homeChildren.forEach(el=>el.hidden=!!active);
   document.querySelectorAll('.single-competence').forEach(el=>el.hidden=el.id!=='competence-'+active);
-  if(active) window.scrollTo(0,0);
+  if(active){
+    window.scrollTo(0,0);
+    var l=document.documentElement.getAttribute('data-l')||'fr';
+    var t=(window.I18N&&window.I18N[l]&&window.I18N[l]['title_'+active])||baseTitle;
+    document.title=t;
+  } else {
+    document.title=baseTitle;
+    var tid=location.hash.slice(1); var te=tid&&document.getElementById(tid); if(te) te.scrollIntoView();
+  }
  }
  window.addEventListener('hashchange',route); route();
 })();
